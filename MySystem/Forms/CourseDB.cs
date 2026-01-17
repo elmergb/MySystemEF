@@ -90,7 +90,7 @@ namespace MySystem.Forms
 
         private void CourseDB_Load(object sender, EventArgs e)
         {
-
+            
             if (_CourseID == null)
             {
                 txtCode.Clear();

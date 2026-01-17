@@ -38,29 +38,41 @@
             panel4 = new Panel();
             label5 = new Label();
             panel5 = new Panel();
+            txtSearch = new TextBox();
+            cbStatus = new ComboBox();
+            cbSection = new ComboBox();
+            btnPrint = new Button();
+            btnExport = new Button();
+            btnViewDetails = new Button();
+            btnDelete = new Button();
+            btnEdit = new Button();
+            btnAdd = new Button();
             dgvStudents = new DataGridView();
+            label6 = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
+            panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvStudents).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(1, 9);
+            label1.Location = new Point(1, -5);
             label1.Name = "label1";
             label1.Size = new Size(1191, 52);
             label1.TabIndex = 1;
             label1.Text = "    STUDENT LIST";
             label1.TextAlign = ContentAlignment.MiddleLeft;
+            label1.Click += label1_Click;
             // 
             // panel1
             // 
             panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(label2);
-            panel1.Location = new Point(40, 86);
+            panel1.Location = new Point(18, 60);
             panel1.Name = "panel1";
             panel1.Size = new Size(191, 92);
             panel1.TabIndex = 2;
@@ -79,7 +91,7 @@
             // 
             panel2.BorderStyle = BorderStyle.FixedSingle;
             panel2.Controls.Add(label3);
-            panel2.Location = new Point(271, 86);
+            panel2.Location = new Point(249, 60);
             panel2.Name = "panel2";
             panel2.Size = new Size(191, 92);
             panel2.TabIndex = 3;
@@ -98,7 +110,7 @@
             // 
             panel3.BorderStyle = BorderStyle.FixedSingle;
             panel3.Controls.Add(label4);
-            panel3.Location = new Point(501, 86);
+            panel3.Location = new Point(479, 60);
             panel3.Name = "panel3";
             panel3.Size = new Size(191, 92);
             panel3.TabIndex = 4;
@@ -117,7 +129,7 @@
             // 
             panel4.BorderStyle = BorderStyle.FixedSingle;
             panel4.Controls.Add(label5);
-            panel4.Location = new Point(728, 86);
+            panel4.Location = new Point(706, 60);
             panel4.Name = "panel4";
             panel4.Size = new Size(191, 92);
             panel4.TabIndex = 5;
@@ -136,24 +148,128 @@
             // panel5
             // 
             panel5.BorderStyle = BorderStyle.FixedSingle;
-            panel5.Location = new Point(40, 217);
+            panel5.Controls.Add(txtSearch);
+            panel5.Controls.Add(cbStatus);
+            panel5.Controls.Add(cbSection);
+            panel5.Controls.Add(btnPrint);
+            panel5.Controls.Add(btnExport);
+            panel5.Controls.Add(btnViewDetails);
+            panel5.Controls.Add(btnDelete);
+            panel5.Controls.Add(btnEdit);
+            panel5.Controls.Add(btnAdd);
+            panel5.Location = new Point(18, 191);
             panel5.Name = "panel5";
             panel5.Size = new Size(879, 100);
             panel5.TabIndex = 7;
             // 
+            // txtSearch
+            // 
+            txtSearch.Location = new Point(292, 59);
+            txtSearch.Multiline = true;
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(241, 27);
+            txtSearch.TabIndex = 13;
+            // 
+            // cbStatus
+            // 
+            cbStatus.FormattingEnabled = true;
+            cbStatus.Location = new Point(175, 59);
+            cbStatus.Name = "cbStatus";
+            cbStatus.Size = new Size(98, 23);
+            cbStatus.TabIndex = 12;
+            // 
+            // cbSection
+            // 
+            cbSection.FormattingEnabled = true;
+            cbSection.Location = new Point(13, 59);
+            cbSection.Name = "cbSection";
+            cbSection.Size = new Size(145, 23);
+            cbSection.TabIndex = 11;
+            // 
+            // btnPrint
+            // 
+            btnPrint.Location = new Point(657, 13);
+            btnPrint.Name = "btnPrint";
+            btnPrint.Size = new Size(79, 34);
+            btnPrint.TabIndex = 10;
+            btnPrint.Text = "Print";
+            btnPrint.UseVisualStyleBackColor = true;
+            // 
+            // btnExport
+            // 
+            btnExport.Location = new Point(524, 13);
+            btnExport.Name = "btnExport";
+            btnExport.Size = new Size(113, 34);
+            btnExport.TabIndex = 9;
+            btnExport.Text = "Export to Excell";
+            btnExport.UseVisualStyleBackColor = true;
+            // 
+            // btnViewDetails
+            // 
+            btnViewDetails.Location = new Point(408, 13);
+            btnViewDetails.Name = "btnViewDetails";
+            btnViewDetails.Size = new Size(98, 34);
+            btnViewDetails.TabIndex = 3;
+            btnViewDetails.Text = "View Details";
+            btnViewDetails.UseVisualStyleBackColor = true;
+            // 
+            // btnDelete
+            // 
+            btnDelete.Location = new Point(292, 13);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(98, 34);
+            btnDelete.TabIndex = 2;
+            btnDelete.Text = "Delete";
+            btnDelete.UseVisualStyleBackColor = true;
+            // 
+            // btnEdit
+            // 
+            btnEdit.Location = new Point(175, 13);
+            btnEdit.Name = "btnEdit";
+            btnEdit.Size = new Size(98, 34);
+            btnEdit.TabIndex = 1;
+            btnEdit.Text = "Edit";
+            btnEdit.UseVisualStyleBackColor = true;
+            btnEdit.Click += btnEdit_Click;
+            // 
+            // btnAdd
+            // 
+            btnAdd.Location = new Point(13, 13);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(145, 34);
+            btnAdd.TabIndex = 0;
+            btnAdd.Text = "Add New Student";
+            btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
+            // 
             // dgvStudents
             // 
+            dgvStudents.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvStudents.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvStudents.Location = new Point(40, 391);
+            dgvStudents.Location = new Point(18, 365);
             dgvStudents.Name = "dgvStudents";
+            dgvStudents.RowHeadersVisible = false;
+            dgvStudents.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvStudents.Size = new Size(879, 293);
             dgvStudents.TabIndex = 8;
+            // 
+            // label6
+            // 
+            label6.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.Location = new Point(18, 311);
+            label6.Name = "label6";
+            label6.Size = new Size(879, 52);
+            label6.TabIndex = 9;
+            label6.Text = "    STUDENT RECORD";
+            label6.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // StudentList
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoScroll = true;
             ClientSize = new Size(958, 712);
+            Controls.Add(label6);
             Controls.Add(dgvStudents);
             Controls.Add(panel5);
             Controls.Add(panel4);
@@ -172,6 +288,8 @@
             panel3.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
+            panel5.ResumeLayout(false);
+            panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvStudents).EndInit();
             ResumeLayout(false);
         }
@@ -189,5 +307,15 @@
         private Label label5;
         private Panel panel5;
         private DataGridView dgvStudents;
+        private Button btnAdd;
+        private TextBox txtSearch;
+        private ComboBox cbStatus;
+        private ComboBox cbSection;
+        private Button btnPrint;
+        private Button btnExport;
+        private Button btnViewDetails;
+        private Button btnDelete;
+        private Button btnEdit;
+        private Label label6;
     }
 }

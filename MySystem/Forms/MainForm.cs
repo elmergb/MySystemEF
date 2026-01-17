@@ -40,9 +40,9 @@ namespace MySystem.Forms
 
             PanelContent.Controls.Clear();
             StudentList student = new StudentList();
-            student.TopLevel = false;             // ❌ Must set TopLevel = false
-            student.FormBorderStyle = FormBorderStyle.None; // Optional
-            student.Dock = DockStyle.Fill;        // Fill panel
+            student.TopLevel = false;            
+            student.FormBorderStyle = FormBorderStyle.None; 
+            student.Dock = DockStyle.Fill;       
             PanelContent.Controls.Add(student);
             student.Show();
         }
