@@ -31,7 +31,7 @@ namespace MySystem.Forms
                 var user = context.Users
                     .FirstOrDefault(u =>
                                      u.Username == username &&
-                                     u.Password == password);
+                                     u.PasswordHash == password);
 
                 var mainForm = new MainForm();
                 if (user != null) { 

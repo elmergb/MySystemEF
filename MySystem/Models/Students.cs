@@ -10,16 +10,21 @@ using TaskStatus = MySystem.Models.Enums.TaskStatus;
 namespace MySystem.Models
 {
 
-        public class Students
+        public class students
         {
-       
-        public int stuID { get; set; }
         public int StudentID { get; set; }
-        public string fname { get; set; }
-        public string lname { get; set; }
-        public string mi { get; set; }
-        public int yearID { get; set; }
-        public int courseID { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string MiddleName { get; set; }
+        public DateTime DateOfBirth { get; set; }
+        public string Gender { get; set; }
+        public string Address { get; set; }
+        public string PhoneNumber { get; set; }
+        public string GuardianName { get; set; }
+        public string GuardianPhone { get; set; }
+        public DateTime EnrollmentDate { get; set; }
+        public string PhotoPath { get; set; } = "N/A";
+        public string Status { get; set; }
 
     }
     

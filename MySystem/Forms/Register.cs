@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static MySystem.Models.User.Roles;
 
 namespace MySystem.Forms
 {
@@ -20,19 +21,29 @@ namespace MySystem.Forms
         {
             InitializeComponent();
         }
-
+        public bool status { get; set; }
         private void Register_Load(object sender, EventArgs e)
         {
+            string[] roles = new string[] {"Admin", "Student", "Teacher" };
+            cbRole.Items.AddRange(roles);
 
+          
         }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
+            string username = txtUsername.Text;
+            string password = txtPassword.Text;
+            string role = cbRole.Text;
+            DateTime now = DateTime.Now;
+            status = cbStatus.Checked;
+
             var user = new User()
             {
                 Username = txtUsername.Text,
-                Password = txtPassword.Text,
-                Email = txtEmail.Text
+                PasswordHash = txtPassword.Text,
+                UserType = role,
+                IsActive = status,
+                CreatedDate = now
             };
 
             try

@@ -32,7 +32,7 @@
             dgvCourse = new DataGridView();
             toolStrip1 = new ToolStrip();
             toolStripLabel1 = new ToolStripLabel();
-            toolStripLabel2 = new ToolStripLabel();
+            tsUpdate = new ToolStripLabel();
             toolStripLabel3 = new ToolStripLabel();
             ((System.ComponentModel.ISupportInitialize)dgvCourse).BeginInit();
             toolStrip1.SuspendLayout();
@@ -64,7 +64,7 @@
             // 
             toolStrip1.AutoSize = false;
             toolStrip1.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripLabel1, toolStripLabel2, toolStripLabel3 });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripLabel1, tsUpdate, toolStripLabel3 });
             toolStrip1.Location = new Point(0, 55);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(800, 51);
@@ -78,12 +78,12 @@
             toolStripLabel1.Text = "Add";
             toolStripLabel1.Click += toolStripLabel1_Click;
             // 
-            // toolStripLabel2
+            // tsUpdate
             // 
-            toolStripLabel2.Name = "toolStripLabel2";
-            toolStripLabel2.Size = new Size(53, 48);
-            toolStripLabel2.Text = "Update";
-            toolStripLabel2.Click += toolStripLabel2_Click;
+            tsUpdate.Name = "tsUpdate";
+            tsUpdate.Size = new Size(53, 48);
+            tsUpdate.Text = "Update";
+            tsUpdate.Click += toolStripLabel2_Click;
             // 
             // toolStripLabel3
             // 
@@ -92,6 +92,7 @@
             toolStripLabel3.Size = new Size(49, 48);
             toolStripLabel3.Text = "Delete";
             toolStripLabel3.TextImageRelation = TextImageRelation.ImageAboveText;
+            toolStripLabel3.Click += toolStripLabel3_Click;
             // 
             // Courses
             // 
@@ -115,7 +116,7 @@
         private Label label1;
         private ToolStrip toolStrip1;
         private ToolStripLabel toolStripLabel1;
-        private ToolStripLabel toolStripLabel2;
+        private ToolStripLabel tsUpdate;
         private ToolStripLabel toolStripLabel3;
         public DataGridView dgvCourse;
     }

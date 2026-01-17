@@ -10,7 +10,9 @@ namespace MySystem.Models.User
     {
         public enum Role
         {
-            Admin
+            Admin,
+            Student
+
         }
     }
 }

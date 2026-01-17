@@ -11,88 +11,108 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace MySystem.Forms
 {
-  
+
     public partial class CourseDB : Form
     {
-        public int? userID;
-        private int? _courseId;
+        private readonly int? _CourseID;
         public CourseDB()
         {
             InitializeComponent();
+            _CourseID = null;
         }
-
-        public CourseDB(int course) : this()
+        public CourseDB(int CourseID)
         {
-            _courseId = course;
+            InitializeComponent();
+            _CourseID = CourseID;
+
         }
-        private void CourseLoad()
-        {
-            using var db = new TaskDBContext();
-          
-                var course = db.courses.Find(_courseId);
-
-                if (course == null)
-                    MessageBox.Show("Course not found");
-                Close();
-                    return;
-
-            txtCode.Text = course.courseCode;
-            txtDescription.Text = course.courseDescription;
-        } 
         private void btnSave_Click(object sender, EventArgs e)
         {
-
-            if (userID > 0)
+            string code = txtCode.Text;
+            string description = txtDescription.Text;
+            using var context = new TaskDBContext();
+            var c = context.courses.FirstOrDefault(s => s.CourseID == _CourseID);
+            if (c != null)
             {
-                using var db = new TaskDBContext();
 
-                var course = db.courses
-                    .Where(course => course.CourseID == 2)
-                    .FirstOrDefault();
+                c.courseCode = code;
+                c.courseDescription = description;
 
+                context.SaveChanges();
 
-                if (course is Course)
+            } else
+            {
+                var course = new Course
                 {
-                    course.courseCode = txtCode.Text;
-                    course.courseDescription = txtDescription.Text;
-                }
+                    courseCode = code,
+                    courseDescription = description
+                };
+                context.Add(course);
+                context.SaveChanges();
+            }
 
-                db.SaveChanges();
-                MessageBox.Show("Success");
-            } 
+            //string code = txtCode.Text.Trim();
+            //string description = txtDescription.Text.Trim();
 
-            
-            //string code = txtCode.Text;
-            //string courseName = txtDescription.Text;
-            //using var db = new TaskDBContext();
-
-            //Course course;
-
-            //if (_courseId.HasValue)
+            //if (string.IsNullOrWhiteSpace(code))
             //{
-            //    course = db.courses.Find(_courseId);
-            //    if (course == null) return;
-            //} else
-            //{
-            //    course = new Course();
-            //    db.Add(course);
+            //    MessageBox.Show("Course code is required.");
+            //    return;
             //}
 
-            //course.courseCode = code;
-            //course.courseDescription = courseName;
+            //using var context = new TaskDBContext();
+            //var c = context.courses.FirstOrDefault(s => s.CourseID == _CourseID);
+            //if (c == null)
+            //{
+            //    MessageBox.Show("Record not found.");
+            //    return;
+            //}
 
-            //db.SaveChanges();
-            //MessageBox.Show("Course saved successfully");
-            //Close();
+            //// Update the tracked entity, not create a new one
+            //c.courseCode = code;
+            //c.courseDescription = description;
+
+            //try
+            //{
+            //    context.SaveChanges();
+            //    MessageBox.Show("Course updated successfully.");
+            //    Close();
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Error saving changes: " + ex.Message);
+            //}
         }
 
         private void CourseDB_Load(object sender, EventArgs e)
         {
-            if (_courseId.HasValue)
-                CourseLoad();
+
+            if (_CourseID == null)
+            {
+                txtCode.Clear();
+                txtDescription.Clear();
+                return;
+            }
+
+            using var context = new TaskDBContext();
+            var c = context.courses.FirstOrDefault(s => s.CourseID == _CourseID);
+
+            if (c == null )
+            {
+                MessageBox.Show("Record not found.");
+               Close();
+                return;
+            }
+
+            txtCode.Text = c.courseCode;
+            txtDescription.Text = c.courseDescription;
+
+            
+
         }
     }
 }

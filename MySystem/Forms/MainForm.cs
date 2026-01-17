@@ -19,19 +19,32 @@ namespace MySystem.Forms
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-
+            Panel panelContent = new Panel();
+            panelContent.Dock = DockStyle.Fill;
+            panelContent.AutoScroll = true;
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            var course = new CourseDB();
-            course.Show();
+
         }
 
         private void toolStripLabel1_Click(object sender, EventArgs e)
         {
             var course = new Courses();
             course.ShowDialog();
+        }
+
+        private void btnStudent_Click(object sender, EventArgs e)
+        {
+
+            PanelContent.Controls.Clear();
+            StudentList student = new StudentList();
+            student.TopLevel = false;             // ❌ Must set TopLevel = false
+            student.FormBorderStyle = FormBorderStyle.None; // Optional
+            student.Dock = DockStyle.Fill;        // Fill panel
+            PanelContent.Controls.Add(student);
+            student.Show();
         }
     }
 }

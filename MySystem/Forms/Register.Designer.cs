@@ -32,10 +32,12 @@
             label1 = new Label();
             txtUsername = new TextBox();
             btnCancel = new Button();
-            txtEmail = new TextBox();
             label2 = new Label();
             txtPassword = new TextBox();
             label3 = new Label();
+            cbStatus = new CheckBox();
+            label4 = new Label();
+            cbRole = new ComboBox();
             SuspendLayout();
             // 
             // btnSave
@@ -76,22 +78,14 @@
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = true;
             // 
-            // txtEmail
-            // 
-            txtEmail.Location = new Point(309, 128);
-            txtEmail.Margin = new Padding(3, 4, 3, 4);
-            txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(145, 26);
-            txtEmail.TabIndex = 5;
-            // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Location = new Point(203, 131);
             label2.Name = "label2";
-            label2.Size = new Size(46, 18);
+            label2.Size = new Size(40, 18);
             label2.TabIndex = 4;
-            label2.Text = "Email:";
+            label2.Text = "Role:";
             // 
             // txtPassword
             // 
@@ -110,14 +104,43 @@
             label3.TabIndex = 6;
             label3.Text = "Password:";
             // 
+            // cbStatus
+            // 
+            cbStatus.AutoSize = true;
+            cbStatus.Location = new Point(309, 173);
+            cbStatus.Name = "cbStatus";
+            cbStatus.Size = new Size(15, 14);
+            cbStatus.TabIndex = 8;
+            cbStatus.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(203, 169);
+            label4.Name = "label4";
+            label4.Size = new Size(54, 18);
+            label4.TabIndex = 9;
+            label4.Text = "Status:";
+            // 
+            // cbRole
+            // 
+            cbRole.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbRole.FormattingEnabled = true;
+            cbRole.Location = new Point(309, 128);
+            cbRole.Name = "cbRole";
+            cbRole.Size = new Size(143, 26);
+            cbRole.TabIndex = 10;
+            // 
             // Register
             // 
             AutoScaleDimensions = new SizeF(8F, 18F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(647, 339);
+            Controls.Add(cbRole);
+            Controls.Add(label4);
+            Controls.Add(cbStatus);
             Controls.Add(txtPassword);
             Controls.Add(label3);
-            Controls.Add(txtEmail);
             Controls.Add(label2);
             Controls.Add(btnCancel);
             Controls.Add(txtUsername);
@@ -138,9 +161,11 @@
         private Label label1;
         private TextBox txtUsername;
         private Button btnCancel;
-        private TextBox txtEmail;
         private Label label2;
         private TextBox txtPassword;
         private Label label3;
+        private CheckBox cbStatus;
+        private Label label4;
+        private ComboBox cbRole;
     }
 }
