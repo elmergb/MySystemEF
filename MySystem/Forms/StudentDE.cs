@@ -46,6 +46,7 @@ namespace MySystem.Forms
                 txtGuardianPhone.Clear();
                 dtpEnrollmentDate.Value = DateTime.Now;
                 cbStatus.Text = "";
+                picture.Image = null;
                 return;
             }
 
@@ -58,7 +59,6 @@ namespace MySystem.Forms
                 MessageBox.Show("Record not found");
                 return;
             }
-
             txtFirstName.Text = student.FirstName;
             txtMiddleName.Text = student.MiddleName;
             txtLastName.Text = student.LastName;
@@ -70,6 +70,8 @@ namespace MySystem.Forms
             txtGuardianPhone.Text = student.GuardianPhone;
             dtpEnrollmentDate.Value = student.EnrollmentDate;
             cbStatus.Text = student.Status;
+            using var ms = new MemoryStream(student.PhotoPath);
+            picture.Image = Image.FromStream(ms);
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -89,7 +91,7 @@ namespace MySystem.Forms
                 student.Address = txtAddress.Text;
                 student.GuardianPhone = txtGuardianPhone.Text;
                 student.EnrollmentDate = dtpEnrollmentDate.Value;
-
+                student.PhotoPath = selectedPhoto;
                 db.SaveChanges();
             }
             else
@@ -105,7 +107,8 @@ namespace MySystem.Forms
                     GuardianName = txtGuardianName.Text,
                     Address = txtAddress.Text,
                     GuardianPhone = txtGuardianPhone.Text,
-                    EnrollmentDate = dtpEnrollmentDate.Value
+                    EnrollmentDate = dtpEnrollmentDate.Value,
+                    PhotoPath = selectedPhoto
                 };
                 db.Add(studentNew);
                 db.SaveChanges();
@@ -119,6 +122,26 @@ namespace MySystem.Forms
         }
 
         private void txtMiddleName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        public byte[]? selectedPhoto = null;
+        private void btnPhoto_Click(object sender, EventArgs e)
+        {
+            using OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png";
+
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                selectedPhoto = File.ReadAllBytes(ofd.FileName);
+
+                using var ms = new MemoryStream(selectedPhoto);
+                picture.Image = Image.FromStream(ms);
+                picture.SizeMode = PictureBoxSizeMode.Zoom;
+            }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }

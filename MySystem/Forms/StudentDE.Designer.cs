@@ -84,6 +84,7 @@
             btnPhoto.TabIndex = 3;
             btnPhoto.Text = "Browse Photo";
             btnPhoto.UseVisualStyleBackColor = true;
+            btnPhoto.Click += btnPhoto_Click;
             // 
             // groupBox1
             // 
@@ -113,6 +114,7 @@
             label2.TabIndex = 5;
             label2.Text = "      Personal Information";
             label2.TextAlign = ContentAlignment.MiddleLeft;
+            label2.Click += label2_Click;
             // 
             // txtFirstName
             // 

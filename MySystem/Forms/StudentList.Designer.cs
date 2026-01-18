@@ -169,6 +169,9 @@
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(241, 27);
             txtSearch.TabIndex = 13;
+            txtSearch.Text = "Search by PhoneNo, First Name, Last Name";
+            txtSearch.Enter += txtSearch_Enter;
+            txtSearch.Leave += txtSearch_Leave;
             // 
             // cbStatus
             // 
@@ -221,6 +224,7 @@
             btnDelete.TabIndex = 2;
             btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnEdit
             // 
@@ -262,6 +266,7 @@
             label6.TabIndex = 9;
             label6.Text = "    STUDENT RECORD";
             label6.TextAlign = ContentAlignment.MiddleLeft;
+            label6.Click += label6_Click;
             // 
             // StudentList
             // 

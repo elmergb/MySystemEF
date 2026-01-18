@@ -31,6 +31,7 @@ namespace MySystem.Forms
             dgvStudents.AutoGenerateColumns = true;
 
             dgvStudents.DataSource = db.student
+                .Where(s => s.Status == "Active")
                 .Select(s => new
                 {
                     ID = s.StudentID,
@@ -82,6 +83,80 @@ namespace MySystem.Forms
             var form = new StudentDE(selectedStudent.StudentID);
             form.ShowDialog();
             LoadStudent();
+        }
+
+        private void txtSearch_Enter(object sender, EventArgs e)
+        {
+            string text = txtSearch.Text;
+            if (text == "Search by PhoneNo, First Name, Last Name")
+            {
+                txtSearch.Clear();
+                txtSearch.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtSearch_Leave(object sender, EventArgs e)
+        {
+            string text = txtSearch.Text;
+            if (text == "")
+            {
+                text = "Search by PhoneNo, First Name, Last Name";
+                txtSearch.ForeColor = Color.Gray;
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            int _StudentID;
+            if (dgvStudents.CurrentRow == null)
+            {
+                MessageBox.Show("Select a record to delete");
+                return;
+            }
+
+            var selectedID = dgvStudents.CurrentRow.DataBoundItem as students;
+            if (selectedID != null)
+            {
+                _StudentID = selectedID.StudentID;
+            }
+            else
+            {
+                var idCell = dgvStudents.CurrentRow.Cells["ID"];
+                if (idCell?.Value == null || !int.TryParse(idCell.Value.ToString(), out _StudentID))
+                {
+                    MessageBox.Show("Student not founds");
+                    return;
+                }
+            }
+
+            var confirmation = MessageBox.Show("@Are you sure you want to delete this record?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (confirmation != DialogResult.Yes)
+                return;
+
+
+            var db = new TaskDBContext();
+            var findStudent = db.student.Find(_StudentID);
+
+            if (findStudent == null)
+            {
+                MessageBox.Show($"Student Not Found");
+                return;
+            }
+            else
+            {
+                var select = db.student.FirstOrDefault(s => s.StudentID == _StudentID);
+                select.Status = "Inactive";
+            }
+            //db.Remove(findStudent);
+            db.SaveChanges();
+            LoadStudent();
+
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

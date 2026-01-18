@@ -23,7 +23,7 @@ namespace MySystem.Models
         public string GuardianName { get; set; }
         public string GuardianPhone { get; set; }
         public DateTime EnrollmentDate { get; set; }
-        public string PhotoPath { get; set; } = "N/A";
+        public byte[]? PhotoPath { get; set; }
         public string Status { get; set; }
 
     }

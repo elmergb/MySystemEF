@@ -40,11 +40,16 @@ namespace MySystem.Forms
 
             PanelContent.Controls.Clear();
             StudentList student = new StudentList();
-            student.TopLevel = false;            
-            student.FormBorderStyle = FormBorderStyle.None; 
-            student.Dock = DockStyle.Fill;       
+            student.TopLevel = false;
+            student.FormBorderStyle = FormBorderStyle.None;
+            student.Dock = DockStyle.Fill;
             PanelContent.Controls.Add(student);
             student.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
