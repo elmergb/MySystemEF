@@ -16,6 +16,7 @@ namespace MySystem.Forms
     public partial class StudentDE : Form
     {
         private int? _studentId;
+        private string? selectedPhotoPath;
         public StudentDE()
         {
             InitializeComponent();
@@ -29,6 +30,19 @@ namespace MySystem.Forms
         private void label7_Click(object sender, EventArgs e)
         {
 
+        }
+        private void LoadImage(string? path)
+        {
+            if (!string.IsNullOrWhiteSpace(path) && File.Exists(path))
+            {
+                using var fs = new FileStream(path, FileMode.Open, FileAccess.Read);
+                using var tempImg = Image.FromStream(fs);
+                picture.Image = new Bitmap(tempImg);
+            }
+            else
+            {
+                picture.Image = null;
+            }
         }
 
         private void StudentDE_Load(object sender, EventArgs e)
@@ -71,25 +85,8 @@ namespace MySystem.Forms
             txtGuardianPhone.Text = student.GuardianPhone;
             dtpEnrollmentDate.Value = student.EnrollmentDate;
             cbStatus.Text = student.Status;
-            if (student.PhotoPath != null && student.PhotoPath.Length > 0)
-            {
-                selectedPhoto = student.PhotoPath; // IMPORTANT
-
-                using (var ms = new MemoryStream(student.PhotoPath))
-                using (var tempImg = Image.FromStream(ms))
-                {
-                    picture.Image = new Bitmap(tempImg); // clone = SAFE
-                }
-
-                picture.SizeMode = PictureBoxSizeMode.Zoom;
-            }
-            else
-            {
-                picture.Image = null;
-                selectedPhoto = null;
-            }
-            File.WriteAllBytes("test.jpg", student.PhotoPath);
-
+            selectedPhotoPath = student.PhotoPath; // keep existing
+            LoadImage(selectedPhotoPath);
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -110,8 +107,8 @@ namespace MySystem.Forms
                 student.GuardianPhone = txtGuardianPhone.Text;
                 student.EnrollmentDate = dtpEnrollmentDate.Value;
 
-                if (selectedPhoto != null)
-                    student.PhotoPath = selectedPhoto;
+                if (!string.IsNullOrWhiteSpace(selectedPhotoPath))
+                    student.PhotoPath = selectedPhotoPath;
                 db.SaveChanges();
             }
             else
@@ -128,7 +125,7 @@ namespace MySystem.Forms
                     Address = txtAddress.Text,
                     GuardianPhone = txtGuardianPhone.Text,
                     EnrollmentDate = dtpEnrollmentDate.Value,
-                    PhotoPath = selectedPhoto
+                    PhotoPath = selectedPhotoPath
                 };
                 db.Add(studentNew);
                 db.SaveChanges();
@@ -145,23 +142,28 @@ namespace MySystem.Forms
         {
 
         }
-        public byte[]? selectedPhoto = null;
+        
         private void btnPhoto_Click(object sender, EventArgs e)
         {
-            using OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png";
+            using OpenFileDialog ofd = new OpenFileDialog
+            {
+                Filter = "Image Files|*.jpg;*.jpeg;*.png"
+            };
 
             if (ofd.ShowDialog() == DialogResult.OK)
             {
-                selectedPhoto = File.ReadAllBytes(ofd.FileName);
+                string imagesDir = Path.Combine(
+                    Application.StartupPath, "Images", "Students");
 
-                using (var ms = new MemoryStream(selectedPhoto))
-                using (var tempImg = Image.FromStream(ms))
-                {
-                    picture.Image = new Bitmap(tempImg);
-                }
-                picture.SizeMode = PictureBoxSizeMode.Zoom;
+                Directory.CreateDirectory(imagesDir);
 
+                string newFileName = Guid.NewGuid() + Path.GetExtension(ofd.FileName);
+                string destPath = Path.Combine(imagesDir, newFileName);
+
+                File.Copy(ofd.FileName, destPath, true);
+
+                selectedPhotoPath = destPath;
+                LoadImage(selectedPhotoPath);
             }
         }
 
