@@ -33,6 +33,7 @@ namespace MySystem.Forms
 
         private void StudentDE_Load(object sender, EventArgs e)
         {
+
             if (_studentId == null)
             {
                 txtFirstName.Clear();
@@ -70,8 +71,25 @@ namespace MySystem.Forms
             txtGuardianPhone.Text = student.GuardianPhone;
             dtpEnrollmentDate.Value = student.EnrollmentDate;
             cbStatus.Text = student.Status;
-            using var ms = new MemoryStream(student.PhotoPath);
-            picture.Image = Image.FromStream(ms);
+            if (student.PhotoPath != null && student.PhotoPath.Length > 0)
+            {
+                selectedPhoto = student.PhotoPath; // IMPORTANT
+
+                using (var ms = new MemoryStream(student.PhotoPath))
+                using (var tempImg = Image.FromStream(ms))
+                {
+                    picture.Image = new Bitmap(tempImg); // clone = SAFE
+                }
+
+                picture.SizeMode = PictureBoxSizeMode.Zoom;
+            }
+            else
+            {
+                picture.Image = null;
+                selectedPhoto = null;
+            }
+            File.WriteAllBytes("test.jpg", student.PhotoPath);
+
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -91,7 +109,9 @@ namespace MySystem.Forms
                 student.Address = txtAddress.Text;
                 student.GuardianPhone = txtGuardianPhone.Text;
                 student.EnrollmentDate = dtpEnrollmentDate.Value;
-                student.PhotoPath = selectedPhoto;
+
+                if (selectedPhoto != null)
+                    student.PhotoPath = selectedPhoto;
                 db.SaveChanges();
             }
             else
@@ -135,9 +155,13 @@ namespace MySystem.Forms
             {
                 selectedPhoto = File.ReadAllBytes(ofd.FileName);
 
-                using var ms = new MemoryStream(selectedPhoto);
-                picture.Image = Image.FromStream(ms);
+                using (var ms = new MemoryStream(selectedPhoto))
+                using (var tempImg = Image.FromStream(ms))
+                {
+                    picture.Image = new Bitmap(tempImg);
+                }
                 picture.SizeMode = PictureBoxSizeMode.Zoom;
+
             }
         }
 
