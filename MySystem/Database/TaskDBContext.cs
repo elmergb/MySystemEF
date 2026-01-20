@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MySystem.Forms;
 using MySystem.Models;
 using MySystem.Models.User;
 using System;
@@ -6,8 +7,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static MySystem.Models.students;
 using static MySystem.Models.Course;
+using static MySystem.Models.students;
 
 
 namespace MySystem.Database
@@ -18,6 +19,7 @@ namespace MySystem.Database
         public DbSet<User> Users { get; set; }
         public DbSet<YearLevels> Year { get; set; }
         public DbSet<Course> courses { get; set; }
+        public DbSet<Teachers> Teachers { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
             options.UseMySql(
@@ -44,6 +46,10 @@ namespace MySystem.Database
 
             modelBuilder.Entity<students>()
             .ToTable("students");
+
+            modelBuilder.Entity<Teachers>()
+            .HasIndex(c => c.TeacherID)
+            .IsUnique();
         }
 
 

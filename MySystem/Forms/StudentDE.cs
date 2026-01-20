@@ -38,6 +38,7 @@ namespace MySystem.Forms
                 using var fs = new FileStream(path, FileMode.Open, FileAccess.Read);
                 using var tempImg = Image.FromStream(fs);
                 picture.Image = new Bitmap(tempImg);
+                picture.SizeMode = PictureBoxSizeMode.Zoom;
             }
             else
             {
@@ -47,7 +48,14 @@ namespace MySystem.Forms
 
         private void StudentDE_Load(object sender, EventArgs e)
         {
-
+            string[] gender = {"Male", "Female" };
+            string[] status = {"Active", "Inactive" };
+            string[] grades = { "G-7", "G-8", "G-9", "G-10" };
+            string[] sections = { "A", "B", "C", "D" };
+            cbGender.Items.AddRange(gender);
+            cbStatus.Items.AddRange(status);
+            cbGrade.Items.AddRange(grades);
+            cbSection.Items.AddRange(sections);
             if (_studentId == null)
             {
                 txtFirstName.Clear();
@@ -59,6 +67,8 @@ namespace MySystem.Forms
                 txtGuardianName.Clear();
                 txtAddress.Clear();
                 txtGuardianPhone.Clear();
+                cbSection.Text = "";
+                cbGrade.Text = "";
                 dtpEnrollmentDate.Value = DateTime.Now;
                 cbStatus.Text = "";
                 picture.Image = null;
@@ -85,13 +95,16 @@ namespace MySystem.Forms
             txtGuardianPhone.Text = student.GuardianPhone;
             dtpEnrollmentDate.Value = student.EnrollmentDate;
             cbStatus.Text = student.Status;
+            cbSection.Text = student.Section;
+            cbGrade.Text = student.GradeLevel;
             selectedPhotoPath = student.PhotoPath; // keep existing
             LoadImage(selectedPhotoPath);
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-
+            if (!validation())
+                return;
             using var db = new TaskDBContext();
             var student = db.student.FirstOrDefault(s => s.StudentID == _studentId);
             if (student != null)
@@ -105,11 +118,14 @@ namespace MySystem.Forms
                 student.GuardianName = txtGuardianName.Text;
                 student.Address = txtAddress.Text;
                 student.GuardianPhone = txtGuardianPhone.Text;
+                student.Status = cbStatus.Text;
                 student.EnrollmentDate = dtpEnrollmentDate.Value;
-
+                student.Section = cbSection.Text;
+                student.GradeLevel = cbGrade.Text;
                 if (!string.IsNullOrWhiteSpace(selectedPhotoPath))
                     student.PhotoPath = selectedPhotoPath;
                 db.SaveChanges();
+                MessageBox.Show($"Successfully updated");
             }
             else
             {
@@ -124,25 +140,23 @@ namespace MySystem.Forms
                     GuardianName = txtGuardianName.Text,
                     Address = txtAddress.Text,
                     GuardianPhone = txtGuardianPhone.Text,
+                    Status = cbStatus.Text,
                     EnrollmentDate = dtpEnrollmentDate.Value,
-                    PhotoPath = selectedPhotoPath
+                    PhotoPath = selectedPhotoPath,
+                    Section = cbSection.Text,
+                    GradeLevel = cbGrade.Text
                 };
                 db.Add(studentNew);
                 db.SaveChanges();
+                MessageBox.Show($"Successfully added");
             }
 
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-
+            var confirmation = MessageBox.Show("Are you sure to cancel this record?", "Conformation to cancel this record", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
         }
-
-        private void txtMiddleName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-        
         private void btnPhoto_Click(object sender, EventArgs e)
         {
             using OpenFileDialog ofd = new OpenFileDialog
@@ -161,15 +175,103 @@ namespace MySystem.Forms
                 string destPath = Path.Combine(imagesDir, newFileName);
 
                 File.Copy(ofd.FileName, destPath, true);
-
+                picture.SizeMode = PictureBoxSizeMode.Zoom;
                 selectedPhotoPath = destPath;
                 LoadImage(selectedPhotoPath);
             }
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private bool validation()
         {
+            DateTime now = DateTime.Now;
 
+            if (string.IsNullOrWhiteSpace(txtFirstName.Text))
+            {
+                MessageBox.Show("First Name is required");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtMiddleName.Text))
+            {
+                MessageBox.Show("Middle Name is required");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtLastName.Text))
+            {
+                MessageBox.Show("Last Name is required");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(cbGender.Text))
+            {
+                MessageBox.Show("Gender is required");
+                return false;
+            }
+
+            if (dtpDateOfBirth.Value > now)
+            {
+                MessageBox.Show("Invalid Date of Birth");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtPhoneNumber.Text))
+            {
+                MessageBox.Show("Phone Number is required");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtGuardianName.Text))
+            {
+                MessageBox.Show("Guardian Name is required");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(cbStatus.Text))
+            {
+                MessageBox.Show("Status is required");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtAddress.Text))
+            {
+                MessageBox.Show("Address is required");
+                return false;
+            }
+
+            if (dtpEnrollmentDate.Value > now)
+            {
+                MessageBox.Show("Invalid Enrollment Date");
+                return false;
+            }
+
+            if (picture.Image == null)
+            {
+                MessageBox.Show("Photo is required");
+                return false;
+            }
+
+            return true; 
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            var confirmation = MessageBox.Show($@"Are you sure to clear all information?", "Confirmation to Cancel", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (confirmation == DialogResult.Yes) { 
+            txtFirstName.Clear();
+            txtMiddleName.Clear();
+            txtLastName.Clear();
+            cbGender.Text = "";
+            dtpDateOfBirth.Value = DateTime.Now;
+            txtPhoneNumber.Clear();
+            txtGuardianName.Clear();
+            txtAddress.Clear();
+            txtGuardianPhone.Clear();
+            dtpEnrollmentDate.Value = DateTime.Now;
+            cbStatus.Text = "";
+            picture.Image = null;
+            
+            }
         }
     }
 }

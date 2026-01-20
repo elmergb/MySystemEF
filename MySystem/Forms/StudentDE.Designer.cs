@@ -54,13 +54,17 @@
             label14 = new Label();
             dtpEnrollmentDate = new DateTimePicker();
             label16 = new Label();
-            cbStatus = new ComboBox();
             label15 = new Label();
             btnCancel = new Button();
             btnClear = new Button();
             btnSave = new Button();
             label17 = new Label();
             txtMiddleName = new TextBox();
+            cbStatus = new ComboBox();
+            cbSection = new ComboBox();
+            Section = new Label();
+            cbGrade = new ComboBox();
+            label18 = new Label();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picture).BeginInit();
             SuspendLayout();
@@ -90,7 +94,7 @@
             // 
             groupBox1.Controls.Add(picture);
             groupBox1.Controls.Add(btnPhoto);
-            groupBox1.Location = new Point(351, 79);
+            groupBox1.Location = new Point(347, 55);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(187, 201);
             groupBox1.TabIndex = 4;
@@ -108,18 +112,17 @@
             // label2
             // 
             label2.Font = new Font("Microsoft Tai Le", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(0, 299);
+            label2.Location = new Point(0, 259);
             label2.Name = "label2";
             label2.Size = new Size(546, 23);
             label2.TabIndex = 5;
             label2.Text = "      Personal Information";
             label2.TextAlign = ContentAlignment.MiddleLeft;
-            label2.Click += label2_Click;
             // 
             // txtFirstName
             // 
             txtFirstName.Font = new Font("Microsoft New Tai Lue", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtFirstName.Location = new Point(15, 362);
+            txtFirstName.Location = new Point(15, 322);
             txtFirstName.Multiline = true;
             txtFirstName.Name = "txtFirstName";
             txtFirstName.Size = new Size(153, 33);
@@ -129,7 +132,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Tai Le", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(12, 338);
+            label3.Location = new Point(12, 298);
             label3.Name = "label3";
             label3.Size = new Size(89, 21);
             label3.TabIndex = 7;
@@ -140,7 +143,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft Tai Le", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(364, 338);
+            label4.Location = new Point(364, 298);
             label4.Name = "label4";
             label4.Size = new Size(87, 21);
             label4.TabIndex = 8;
@@ -150,7 +153,7 @@
             // txtLastName
             // 
             txtLastName.Font = new Font("Microsoft New Tai Lue", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtLastName.Location = new Point(364, 362);
+            txtLastName.Location = new Point(364, 322);
             txtLastName.Multiline = true;
             txtLastName.Name = "txtLastName";
             txtLastName.Size = new Size(158, 33);
@@ -160,7 +163,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Microsoft Tai Le", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(15, 411);
+            label5.Location = new Point(15, 371);
             label5.Name = "label5";
             label5.Size = new Size(100, 21);
             label5.TabIndex = 10;
@@ -171,7 +174,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Microsoft Tai Le", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.Location = new Point(282, 411);
+            label6.Location = new Point(282, 371);
             label6.Name = "label6";
             label6.Size = new Size(64, 21);
             label6.TabIndex = 11;
@@ -183,7 +186,7 @@
             dtpDateOfBirth.CustomFormat = "MM/dd/yyyy";
             dtpDateOfBirth.Font = new Font("Microsoft New Tai Lue", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dtpDateOfBirth.Format = DateTimePickerFormat.Custom;
-            dtpDateOfBirth.Location = new Point(15, 435);
+            dtpDateOfBirth.Location = new Point(15, 395);
             dtpDateOfBirth.Name = "dtpDateOfBirth";
             dtpDateOfBirth.Size = new Size(233, 28);
             dtpDateOfBirth.TabIndex = 12;
@@ -191,9 +194,10 @@
             // 
             // cbGender
             // 
+            cbGender.DropDownStyle = ComboBoxStyle.DropDownList;
             cbGender.Font = new Font("Microsoft New Tai Lue", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbGender.FormattingEnabled = true;
-            cbGender.Location = new Point(287, 436);
+            cbGender.Location = new Point(287, 396);
             cbGender.Name = "cbGender";
             cbGender.Size = new Size(235, 29);
             cbGender.TabIndex = 13;
@@ -201,7 +205,7 @@
             // label7
             // 
             label7.Font = new Font("Microsoft Tai Le", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.Location = new Point(0, 491);
+            label7.Location = new Point(-3, 436);
             label7.Name = "label7";
             label7.Size = new Size(522, 23);
             label7.TabIndex = 14;
@@ -213,7 +217,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Microsoft Tai Le", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label8.Location = new Point(12, 528);
+            label8.Location = new Point(9, 461);
             label8.Name = "label8";
             label8.Size = new Size(116, 21);
             label8.TabIndex = 15;
@@ -224,7 +228,7 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Microsoft Tai Le", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label10.Location = new Point(15, 607);
+            label10.Location = new Point(9, 528);
             label10.Name = "label10";
             label10.Size = new Size(137, 21);
             label10.TabIndex = 17;
@@ -234,7 +238,7 @@
             // txtPhoneNumber
             // 
             txtPhoneNumber.Font = new Font("Microsoft New Tai Lue", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtPhoneNumber.Location = new Point(15, 552);
+            txtPhoneNumber.Location = new Point(12, 485);
             txtPhoneNumber.Multiline = true;
             txtPhoneNumber.Name = "txtPhoneNumber";
             txtPhoneNumber.Size = new Size(233, 33);
@@ -243,7 +247,7 @@
             // txtAddress
             // 
             txtAddress.Font = new Font("Microsoft New Tai Lue", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtAddress.Location = new Point(15, 631);
+            txtAddress.Location = new Point(9, 552);
             txtAddress.Multiline = true;
             txtAddress.Name = "txtAddress";
             txtAddress.Size = new Size(505, 88);
@@ -252,7 +256,7 @@
             // label11
             // 
             label11.Font = new Font("Microsoft Tai Le", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label11.Location = new Point(0, 747);
+            label11.Location = new Point(-3, 653);
             label11.Name = "label11";
             label11.Size = new Size(515, 23);
             label11.TabIndex = 21;
@@ -262,7 +266,7 @@
             // txtGuardianName
             // 
             txtGuardianName.Font = new Font("Microsoft New Tai Lue", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtGuardianName.Location = new Point(15, 808);
+            txtGuardianName.Location = new Point(15, 708);
             txtGuardianName.Multiline = true;
             txtGuardianName.Name = "txtGuardianName";
             txtGuardianName.Size = new Size(233, 33);
@@ -272,7 +276,7 @@
             // 
             label12.AutoSize = true;
             label12.Font = new Font("Microsoft Tai Le", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label12.Location = new Point(15, 784);
+            label12.Location = new Point(15, 684);
             label12.Name = "label12";
             label12.Size = new Size(120, 21);
             label12.TabIndex = 23;
@@ -283,7 +287,7 @@
             // 
             label13.AutoSize = true;
             label13.Font = new Font("Microsoft Tai Le", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label13.Location = new Point(275, 784);
+            label13.Location = new Point(275, 684);
             label13.Name = "label13";
             label13.Size = new Size(150, 21);
             label13.TabIndex = 24;
@@ -293,7 +297,7 @@
             // txtGuardianPhone
             // 
             txtGuardianPhone.Font = new Font("Microsoft New Tai Lue", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtGuardianPhone.Location = new Point(282, 808);
+            txtGuardianPhone.Location = new Point(282, 708);
             txtGuardianPhone.Multiline = true;
             txtGuardianPhone.Name = "txtGuardianPhone";
             txtGuardianPhone.Size = new Size(233, 33);
@@ -302,7 +306,7 @@
             // label14
             // 
             label14.Font = new Font("Microsoft Tai Le", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label14.Location = new Point(0, 858);
+            label14.Location = new Point(0, 754);
             label14.Name = "label14";
             label14.Size = new Size(515, 23);
             label14.TabIndex = 26;
@@ -314,7 +318,7 @@
             dtpEnrollmentDate.CustomFormat = "MM/dd/yyyy";
             dtpEnrollmentDate.Font = new Font("Microsoft New Tai Lue", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dtpEnrollmentDate.Format = DateTimePickerFormat.Custom;
-            dtpEnrollmentDate.Location = new Point(15, 914);
+            dtpEnrollmentDate.Location = new Point(15, 810);
             dtpEnrollmentDate.Name = "dtpEnrollmentDate";
             dtpEnrollmentDate.Size = new Size(233, 28);
             dtpEnrollmentDate.TabIndex = 29;
@@ -324,27 +328,18 @@
             // 
             label16.AutoSize = true;
             label16.Font = new Font("Microsoft Tai Le", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label16.Location = new Point(15, 890);
+            label16.Location = new Point(15, 786);
             label16.Name = "label16";
             label16.Size = new Size(122, 21);
             label16.TabIndex = 28;
             label16.Text = "Enrollment Date";
             label16.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // cbStatus
-            // 
-            cbStatus.Font = new Font("Microsoft New Tai Lue", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cbStatus.FormattingEnabled = true;
-            cbStatus.Location = new Point(287, 917);
-            cbStatus.Name = "cbStatus";
-            cbStatus.Size = new Size(235, 29);
-            cbStatus.TabIndex = 31;
-            // 
             // label15
             // 
             label15.AutoSize = true;
             label15.Font = new Font("Microsoft Tai Le", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label15.Location = new Point(282, 890);
+            label15.Location = new Point(10, 846);
             label15.Name = "label15";
             label15.Size = new Size(53, 21);
             label15.TabIndex = 30;
@@ -353,7 +348,7 @@
             // 
             // btnCancel
             // 
-            btnCancel.Location = new Point(28, 983);
+            btnCancel.Location = new Point(15, 941);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(100, 32);
             btnCancel.TabIndex = 6;
@@ -363,16 +358,17 @@
             // 
             // btnClear
             // 
-            btnClear.Location = new Point(300, 983);
+            btnClear.Location = new Point(287, 941);
             btnClear.Name = "btnClear";
             btnClear.Size = new Size(100, 32);
             btnClear.TabIndex = 32;
             btnClear.Text = "Clear Form";
             btnClear.UseVisualStyleBackColor = true;
+            btnClear.Click += btnClear_Click;
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(412, 983);
+            btnSave.Location = new Point(399, 941);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(123, 32);
             btnSave.TabIndex = 33;
@@ -384,7 +380,7 @@
             // 
             label17.AutoSize = true;
             label17.Font = new Font("Microsoft Tai Le", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label17.Location = new Point(188, 338);
+            label17.Location = new Point(188, 298);
             label17.Name = "label17";
             label17.Size = new Size(107, 21);
             label17.TabIndex = 34;
@@ -394,19 +390,74 @@
             // txtMiddleName
             // 
             txtMiddleName.Font = new Font("Microsoft New Tai Lue", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtMiddleName.Location = new Point(188, 362);
+            txtMiddleName.Location = new Point(188, 322);
             txtMiddleName.Multiline = true;
             txtMiddleName.Name = "txtMiddleName";
             txtMiddleName.Size = new Size(158, 33);
             txtMiddleName.TabIndex = 35;
-            txtMiddleName.TextChanged += txtMiddleName_TextChanged;
+            // 
+            // cbStatus
+            // 
+            cbStatus.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbStatus.Font = new Font("Microsoft New Tai Lue", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbStatus.FormattingEnabled = true;
+            cbStatus.Location = new Point(15, 873);
+            cbStatus.Name = "cbStatus";
+            cbStatus.Size = new Size(235, 29);
+            cbStatus.TabIndex = 31;
+            // 
+            // cbSection
+            // 
+            cbSection.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbSection.Font = new Font("Microsoft New Tai Lue", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbSection.FormattingEnabled = true;
+            cbSection.Location = new Point(277, 809);
+            cbSection.Name = "cbSection";
+            cbSection.Size = new Size(235, 29);
+            cbSection.TabIndex = 37;
+            // 
+            // Section
+            // 
+            Section.AutoSize = true;
+            Section.Font = new Font("Microsoft Tai Le", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Section.Location = new Point(272, 782);
+            Section.Name = "Section";
+            Section.Size = new Size(61, 21);
+            Section.TabIndex = 36;
+            Section.Text = "Section";
+            Section.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // cbGrade
+            // 
+            cbGrade.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbGrade.Font = new Font("Microsoft New Tai Lue", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbGrade.FormattingEnabled = true;
+            cbGrade.Location = new Point(282, 873);
+            cbGrade.Name = "cbGrade";
+            cbGrade.Size = new Size(235, 29);
+            cbGrade.TabIndex = 39;
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Font = new Font("Microsoft Tai Le", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label18.Location = new Point(277, 846);
+            label18.Name = "label18";
+            label18.Size = new Size(52, 21);
+            label18.TabIndex = 38;
+            label18.Text = "Grade";
+            label18.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // StudentDE
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
-            ClientSize = new Size(555, 535);
+            ClientSize = new Size(555, 846);
+            Controls.Add(cbGrade);
+            Controls.Add(label18);
+            Controls.Add(cbSection);
+            Controls.Add(Section);
             Controls.Add(txtMiddleName);
             Controls.Add(label17);
             Controls.Add(btnSave);
@@ -475,12 +526,16 @@
         private Label label14;
         private DateTimePicker dtpEnrollmentDate;
         private Label label16;
-        private ComboBox cbStatus;
         private Label label15;
         private Button btnCancel;
         private Button btnClear;
         private Button btnSave;
         private Label label17;
         private TextBox txtMiddleName;
+        private ComboBox cbStatus;
+        private ComboBox cbSection;
+        private Label Section;
+        private ComboBox cbGrade;
+        private Label label18;
     }
 }

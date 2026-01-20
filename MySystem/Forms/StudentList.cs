@@ -31,7 +31,7 @@ namespace MySystem.Forms
             dgvStudents.AutoGenerateColumns = true;
 
             dgvStudents.DataSource = db.student
-                .Where(s => s.Status == "Active")
+                .Where(s => s.Status == "Active")   
                 .Select(s => new
                 {
                     ID = s.StudentID,
@@ -39,7 +39,9 @@ namespace MySystem.Forms
                     Middle_Name = s.MiddleName,
                     Last_Name = s.LastName,
                     Gender = s.Gender,
-                    Phone_Number = s.PhoneNumber
+                    Phone_Number = s.PhoneNumber,
+                    Section = s.Section,
+                    g = s.GradeLevel
                 })
                 .ToList();
 
@@ -150,7 +152,6 @@ namespace MySystem.Forms
             //db.Remove(findStudent);
             db.SaveChanges();
             LoadStudent();
-
 
         }
 

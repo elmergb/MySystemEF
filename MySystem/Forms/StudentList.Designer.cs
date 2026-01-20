@@ -169,12 +169,12 @@
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(241, 27);
             txtSearch.TabIndex = 13;
-            txtSearch.Text = "Search by PhoneNo, First Name, Last Name";
             txtSearch.Enter += txtSearch_Enter;
             txtSearch.Leave += txtSearch_Leave;
             // 
             // cbStatus
             // 
+            cbStatus.DropDownStyle = ComboBoxStyle.DropDownList;
             cbStatus.FormattingEnabled = true;
             cbStatus.Location = new Point(175, 59);
             cbStatus.Name = "cbStatus";
@@ -183,6 +183,7 @@
             // 
             // cbSection
             // 
+            cbSection.DropDownStyle = ComboBoxStyle.DropDownList;
             cbSection.FormattingEnabled = true;
             cbSection.Location = new Point(13, 59);
             cbSection.Name = "cbSection";
