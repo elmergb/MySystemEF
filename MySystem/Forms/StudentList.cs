@@ -22,8 +22,16 @@ namespace MySystem.Forms
         private void StudentList_Load(object sender, EventArgs e)
         {
             LoadStudent();
+            StudentTotal();
         }
+        public void StudentTotal()
+        {
+            using var db = new TaskDBContext();
 
+            lblTotalStudents.Text = db.student
+                                    .Where(s => s.Status == "Active")
+                                    .Count().ToString();
+        }
         public void LoadStudent()
         {
             using var db = new TaskDBContext();

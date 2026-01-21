@@ -10,7 +10,7 @@ namespace MySystem.Models
     public class Teachers
     {
         [Key]
-        public int TeacherID {get;set;}
+       public int TeacherID {get;set;}
 
        public string FirstName { get; set; }
        public string MiddleName { get; set; }

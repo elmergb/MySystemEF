@@ -144,6 +144,7 @@
             btnEdit.TabIndex = 1;
             btnEdit.Text = "Edit";
             btnEdit.UseVisualStyleBackColor = true;
+            btnEdit.Click += btnEdit_Click;
             // 
             // btnAdd
             // 
@@ -153,6 +154,7 @@
             btnAdd.TabIndex = 0;
             btnAdd.Text = "Add New Teacher";
             btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
             // 
             // panel4
             // 
@@ -249,6 +251,7 @@
             label6.TabIndex = 15;
             label6.Text = "    Teacher Records";
             label6.TextAlign = ContentAlignment.MiddleLeft;
+            label6.Click += label6_Click;
             // 
             // dgvTeachers
             // 
@@ -276,6 +279,7 @@
             Controls.Add(label1);
             Name = "TeacherList";
             Text = "TeacherList";
+            Load += TeacherList_Load;
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
             panel4.ResumeLayout(false);

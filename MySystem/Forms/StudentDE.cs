@@ -97,7 +97,7 @@ namespace MySystem.Forms
             cbStatus.Text = student.Status;
             cbSection.Text = student.Section;
             cbGrade.Text = student.GradeLevel;
-            selectedPhotoPath = student.PhotoPath; // keep existing
+                 selectedPhotoPath = student.PhotoPath; // keep existing
             LoadImage(selectedPhotoPath);
         }
 

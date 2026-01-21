@@ -49,6 +49,7 @@
             btnAdd = new Button();
             dgvStudents = new DataGridView();
             label6 = new Label();
+            lblTotalStudents = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
@@ -71,6 +72,7 @@
             // panel1
             // 
             panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(lblTotalStudents);
             panel1.Controls.Add(label2);
             panel1.Location = new Point(18, 60);
             panel1.Name = "panel1";
@@ -269,6 +271,16 @@
             label6.TextAlign = ContentAlignment.MiddleLeft;
             label6.Click += label6_Click;
             // 
+            // lblTotalStudents
+            // 
+            lblTotalStudents.AutoSize = true;
+            lblTotalStudents.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTotalStudents.Location = new Point(64, 43);
+            lblTotalStudents.Name = "lblTotalStudents";
+            lblTotalStudents.Size = new Size(90, 37);
+            lblTotalStudents.TabIndex = 7;
+            lblTotalStudents.Text = "label7";
+            // 
             // StudentList
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -323,5 +335,6 @@
         private Button btnDelete;
         private Button btnEdit;
         private Label label6;
+        private Label lblTotalStudents;
     }
 }

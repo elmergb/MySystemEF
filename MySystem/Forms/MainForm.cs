@@ -51,5 +51,16 @@ namespace MySystem.Forms
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var teacher = new TeacherList();
+            PanelContent.Controls.Clear();
+            teacher.TopLevel = false;
+            teacher.FormBorderStyle = FormBorderStyle.None;
+            teacher.Dock = DockStyle.Fill;
+            PanelContent.Controls.Add(teacher);
+            teacher.Show();
+        }
     }
 }
