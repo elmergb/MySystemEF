@@ -45,17 +45,79 @@ namespace MySystem.Forms
                 picture.Image = null;
             }
         }
+        public string[] section7 = { "Rizal", "Bonifacio ", "Mabini", "Del Pilar", "Luna" };
+        public string[] section8 = { "Zeus", "Athena", "Apollo", "Hera", "Poseidon" };
+        public string[] section9 = { "Integrity", "Perseverance", "Excellence", "Respect", "Discipline" };
+        public string[] section10 = { "Madela", "Gadhi", "Lincoln", "Churchill", "Roosevelt" };
+        private void StudentDE_Shown(object sender, EventArgs e)
+        {
+            // var gradeSections = new Dictionary<string, string[]>
+            //  {
+            //      { "G-7", section7 },
+            //      { "G-8", section8 },
+            //      { "G-9", section9 },
+            //     { "G-10", section10 }
+            // };
+            // cbSection.Items.Clear();
+            //  cbSection.Text = "";
 
+            //if (gradeSections.TryGetValue(cbGrade.Text, out var sections))
+            //{
+            //     cbSection.Items.AddRange(sections);
+            //  }
+            // wrong i think cause the section not displaying in combo box
+        }
         private void StudentDE_Load(object sender, EventArgs e)
         {
-            string[] gender = {"Male", "Female" };
-            string[] status = {"Active", "Inactive" };
+            string[] gender = { "Male", "Female" };
+            string[] status = { "Active", "Inactive" };
             string[] grades = { "G-7", "G-8", "G-9", "G-10" };
-            string[] sections = { "A", "B", "C", "D" };
             cbGender.Items.AddRange(gender);
             cbStatus.Items.AddRange(status);
             cbGrade.Items.AddRange(grades);
-            cbSection.Items.AddRange(sections);
+            string section = cbSection.Text;
+            string SelectedGrades = cbGrade.Text;
+            cbSection.Items.Clear();
+            cbSection.Text = "";
+
+            #region -- if else
+            //if (SelectedGrades.Contains("7"))
+            //{
+            //    cbSection.Items.AddRange(section7);
+            //} else if (SelectedGrades.Contains("8"))
+            //{
+            //    cbSection.Items.AddRange(section8);
+            //} else if (SelectedGrades.Contains("9"))
+            //{
+            //    cbSection.Items.AddRange(section9);
+            //} else if (SelectedGrades.Contains("10"))
+            //{
+            //    cbSection.Items.AddRange(section10);
+            //} else
+            //{
+            //    cbSection.Items.Clear();
+            //}
+            #endregion
+            #region --switch 
+            //switch (SelectedGrades)
+            //{
+            //    case "G-7":
+            //        cbSection.Items.AddRange(section7);
+            //        break;
+            //    case "G-8":
+            //        cbSection.Items.AddRange(section8);
+            //        break;
+            //    case "G-9":
+            //        cbSection.Items.AddRange(section9);
+            //        break;
+            //    case "G-10":
+            //        cbSection.Items.AddRange(section10);
+            //        break;
+            //    default:
+            //        cbSection.Text = "";
+            //        break;
+            //}
+            #endregion
             if (_studentId == null)
             {
                 txtFirstName.Clear();
@@ -97,7 +159,7 @@ namespace MySystem.Forms
             cbStatus.Text = student.Status;
             cbSection.Text = student.Section;
             cbGrade.Text = student.GradeLevel;
-                 selectedPhotoPath = student.PhotoPath; // keep existing
+            selectedPhotoPath = student.PhotoPath; // keep existing
             LoadImage(selectedPhotoPath);
         }
 
@@ -251,26 +313,47 @@ namespace MySystem.Forms
                 return false;
             }
 
-            return true; 
+            return true;
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
             var confirmation = MessageBox.Show($@"Are you sure to clear all information?", "Confirmation to Cancel", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (confirmation == DialogResult.Yes) { 
-            txtFirstName.Clear();
-            txtMiddleName.Clear();
-            txtLastName.Clear();
-            cbGender.Text = "";
-            dtpDateOfBirth.Value = DateTime.Now;
-            txtPhoneNumber.Clear();
-            txtGuardianName.Clear();
-            txtAddress.Clear();
-            txtGuardianPhone.Clear();
-            dtpEnrollmentDate.Value = DateTime.Now;
-            cbStatus.Text = "";
-            picture.Image = null;
-            
+            if (confirmation == DialogResult.Yes)
+            {
+                txtFirstName.Clear();
+                txtMiddleName.Clear();
+                txtLastName.Clear();
+                cbGender.Text = "";
+                dtpDateOfBirth.Value = DateTime.Now;
+                txtPhoneNumber.Clear();
+                txtGuardianName.Clear();
+                txtAddress.Clear();
+                txtGuardianPhone.Clear();
+                dtpEnrollmentDate.Value = DateTime.Now;
+                cbStatus.Text = "";
+                picture.Image = null;
+
+            }
+        }
+
+        private void cbGrade_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbSection.Items.Clear();
+            switch (cbGrade.Text)
+            {
+                case "G-7":
+                    cbSection.Items.AddRange(section7);
+                    break;
+                case "G-8":
+                    cbSection.Items.AddRange(section8);
+                    break;
+                case "G-9":
+                    cbSection.Items.AddRange(section9);
+                    break;
+                case "G-10":
+                    cbSection.Items.AddRange(section10);
+                    break;
             }
         }
     }

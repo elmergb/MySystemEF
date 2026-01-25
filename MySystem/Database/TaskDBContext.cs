@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static MySystem.Models.Course;
 using static MySystem.Models.students;
-
+using static MySystem.Models.Class;
 
 namespace MySystem.Database
 {
@@ -20,6 +20,7 @@ namespace MySystem.Database
         public DbSet<YearLevels> Year { get; set; }
         public DbSet<Course> courses { get; set; }
         public DbSet<Teachers> Teachers { get; set; }
+        public DbSet<Class> Classes { get;set;}
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
             options.UseMySql(
@@ -50,6 +51,10 @@ namespace MySystem.Database
             modelBuilder.Entity<Teachers>()
             .HasIndex(c => c.TeacherID)
             .IsUnique();
+
+            modelBuilder.Entity<Class>()
+          .HasIndex(c => c.ClassID)
+          .IsUnique();
         }
 
 

@@ -406,7 +406,7 @@
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(436, 1008);
+            btnSave.Location = new Point(441, 980);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(123, 32);
             btnSave.TabIndex = 69;
@@ -416,7 +416,7 @@
             // 
             // btnClear
             // 
-            btnClear.Location = new Point(324, 1008);
+            btnClear.Location = new Point(329, 980);
             btnClear.Name = "btnClear";
             btnClear.Size = new Size(100, 32);
             btnClear.TabIndex = 68;
@@ -425,7 +425,7 @@
             // 
             // btnCancel
             // 
-            btnCancel.Location = new Point(33, 1008);
+            btnCancel.Location = new Point(38, 980);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(100, 32);
             btnCancel.TabIndex = 67;

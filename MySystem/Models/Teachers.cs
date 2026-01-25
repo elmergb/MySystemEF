@@ -27,5 +27,7 @@ namespace MySystem.Models
        public string Status { get; set; }
        public string PhotoPath { get; set; }
        public DateTime CreatedDate { get; set; }
+
+       public ICollection<Teachers> teachers { get; set;}     
     }
 }

@@ -436,6 +436,7 @@
             cbGrade.Name = "cbGrade";
             cbGrade.Size = new Size(235, 29);
             cbGrade.TabIndex = 39;
+            cbGrade.SelectedIndexChanged += cbGrade_SelectedIndexChanged;
             // 
             // label18
             // 
@@ -492,6 +493,7 @@
             Name = "StudentDE";
             Text = "StudentDE";
             Load += StudentDE_Load;
+            Shown += StudentDE_Shown;
             groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)picture).EndInit();
             ResumeLayout(false);

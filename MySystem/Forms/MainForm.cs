@@ -62,5 +62,17 @@ namespace MySystem.Forms
             PanelContent.Controls.Add(teacher);
             teacher.Show();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+          
+            var frm = new Classess();
+            PanelContent.Controls.Clear();
+            frm.TopLevel = false;
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            PanelContent.Controls.Add(frm);
+            frm.Show();
+        }
     }
 }

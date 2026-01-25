@@ -30,6 +30,7 @@
         {
             label1 = new Label();
             panel1 = new Panel();
+            lblTotalStudents = new Label();
             label2 = new Label();
             panel2 = new Panel();
             label3 = new Label();
@@ -49,7 +50,6 @@
             btnAdd = new Button();
             dgvStudents = new DataGridView();
             label6 = new Label();
-            lblTotalStudents = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
@@ -78,6 +78,16 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(191, 92);
             panel1.TabIndex = 2;
+            // 
+            // lblTotalStudents
+            // 
+            lblTotalStudents.AutoSize = true;
+            lblTotalStudents.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTotalStudents.Location = new Point(64, 43);
+            lblTotalStudents.Name = "lblTotalStudents";
+            lblTotalStudents.Size = new Size(90, 37);
+            lblTotalStudents.TabIndex = 7;
+            lblTotalStudents.Text = "label7";
             // 
             // label2
             // 
@@ -270,16 +280,6 @@
             label6.Text = "    STUDENT RECORD";
             label6.TextAlign = ContentAlignment.MiddleLeft;
             label6.Click += label6_Click;
-            // 
-            // lblTotalStudents
-            // 
-            lblTotalStudents.AutoSize = true;
-            lblTotalStudents.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblTotalStudents.Location = new Point(64, 43);
-            lblTotalStudents.Name = "lblTotalStudents";
-            lblTotalStudents.Size = new Size(90, 37);
-            lblTotalStudents.TabIndex = 7;
-            lblTotalStudents.Text = "label7";
             // 
             // StudentList
             // 

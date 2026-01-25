@@ -124,8 +124,9 @@ namespace MySystem.Forms
                     HireDate = dtpHireDate.Value,
                     Specialization = txtSpecialization.Text,
                     PhotoPath = selectedPhotoPath,
-                    Status = cbStatus.Text
-               };
+                    Status = cbStatus.Text,
+                    CreatedDate = DateTime.Now
+                };
                 MessageBox.Show($"Successfully Added");
                 db.Add(teacherNew);
                 db.SaveChanges();
