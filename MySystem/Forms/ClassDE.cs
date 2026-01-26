@@ -119,10 +119,15 @@ namespace MySystem.Forms
                 AutoSize = true
             };
 
-            //Label lblSubject = new Label
-            //{
-            //    Text = $"Subject: {}",
-            //};
+            int subjectCount = cls.ClassSubjects != null ? cls.ClassSubjects.Count : 0;
+
+            Label lblSubject = new Label
+            {
+                Text = $"Subjects: {subjectCount}",
+                Location = new Point(50, 120),
+                AutoSize = true,
+                ForeColor = Color.DarkBlue
+            };
 
             Button btnAssign = new Button
             {
@@ -133,6 +138,7 @@ namespace MySystem.Forms
             };
             btnAssign.Click += btnAssign_Click;
             card.Controls.Add(lblClass);
+            card.Controls.Add(lblSubject);
             card.Controls.Add(lblTeacher);
             card.Controls.Add(lblSection);
             card.Controls.Add(lblCapacity);
@@ -153,9 +159,12 @@ namespace MySystem.Forms
 
             selectedClass = cls;
             // Populate Room TextBox or any other controls
+            using var db = new TaskDBContext();
+        
             var select = selected.txtRoomNumberSelected.Text = cls.RoomNumber.ToString().Trim();
+            int classID = selectedClass.ClassID;
             var selectedSection = selected.txtSection.Text = cls.Section.ToString().Trim(); 
-            var frm = new AssignSubjectAndTeacher(select, selectedSection);
+            var frm = new AssignSubjectAndTeacher(select, selectedSection, classID);
             frm.Show();
         }
 
