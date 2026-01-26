@@ -1,6 +1,6 @@
 ﻿namespace MySystem.Forms
 {
-    partial class Classess
+    partial class FrmSubject
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            label1 = new Label();
             label6 = new Label();
             panel5 = new Panel();
             txtSearch = new TextBox();
@@ -45,26 +46,35 @@
             label4 = new Label();
             panel1 = new Panel();
             label3 = new Label();
-            label1 = new Label();
-            flowLayoutPanelClasses = new FlowLayoutPanel();
+            flowLayoutPanelSubjetcs = new FlowLayoutPanel();
             panel2 = new Panel();
             panel5.SuspendLayout();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
             panel1.SuspendLayout();
-            flowLayoutPanelClasses.SuspendLayout();
+            flowLayoutPanelSubjetcs.SuspendLayout();
             SuspendLayout();
+            // 
+            // label1
+            // 
+            label1.Dock = DockStyle.Top;
+            label1.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(0, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(1017, 52);
+            label1.TabIndex = 35;
+            label1.Text = "    Subject Management";
+            label1.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // label6
             // 
             label6.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(12, 288);
+            label6.Location = new Point(12, 300);
             label6.Name = "label6";
             label6.Size = new Size(879, 52);
-            label6.TabIndex = 21;
+            label6.TabIndex = 34;
             label6.Text = "    STUDENT RECORD";
             label6.TextAlign = ContentAlignment.MiddleLeft;
-            label6.Click += label6_Click;
             // 
             // panel5
             // 
@@ -78,10 +88,10 @@
             panel5.Controls.Add(btnDelete);
             panel5.Controls.Add(btnEdit);
             panel5.Controls.Add(btnAdd);
-            panel5.Location = new Point(12, 185);
+            panel5.Location = new Point(12, 197);
             panel5.Name = "panel5";
             panel5.Size = new Size(879, 100);
-            panel5.TabIndex = 20;
+            panel5.TabIndex = 33;
             // 
             // txtSearch
             // 
@@ -160,7 +170,7 @@
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(145, 34);
             btnAdd.TabIndex = 0;
-            btnAdd.Text = "Add New Student";
+            btnAdd.Text = "Add Subjects";
             btnAdd.UseVisualStyleBackColor = true;
             btnAdd.Click += btnAdd_Click;
             // 
@@ -168,10 +178,10 @@
             // 
             panel4.BorderStyle = BorderStyle.FixedSingle;
             panel4.Controls.Add(label5);
-            panel4.Location = new Point(469, 71);
+            panel4.Location = new Point(469, 83);
             panel4.Name = "panel4";
             panel4.Size = new Size(191, 92);
-            panel4.TabIndex = 19;
+            panel4.TabIndex = 32;
             // 
             // label5
             // 
@@ -187,10 +197,10 @@
             // 
             panel3.BorderStyle = BorderStyle.FixedSingle;
             panel3.Controls.Add(label4);
-            panel3.Location = new Point(242, 71);
+            panel3.Location = new Point(242, 83);
             panel3.Name = "panel3";
             panel3.Size = new Size(191, 92);
-            panel3.TabIndex = 18;
+            panel3.TabIndex = 31;
             // 
             // label4
             // 
@@ -206,10 +216,10 @@
             // 
             panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(label3);
-            panel1.Location = new Point(12, 71);
+            panel1.Location = new Point(12, 83);
             panel1.Name = "panel1";
             panel1.Size = new Size(191, 92);
-            panel1.TabIndex = 17;
+            panel1.TabIndex = 30;
             // 
             // label3
             // 
@@ -221,27 +231,15 @@
             label3.TabIndex = 7;
             label3.Text = "Active Students";
             // 
-            // label1
+            // flowLayoutPanelSubjetcs
             // 
-            label1.BackColor = Color.FromArgb(76, 131, 158);
-            label1.Dock = DockStyle.Top;
-            label1.Font = new Font("Bitstream Vera Sans Mono", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(0, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(945, 52);
-            label1.TabIndex = 16;
-            label1.Text = "     Class Management";
-            label1.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // flowLayoutPanelClasses
-            // 
-            flowLayoutPanelClasses.AutoScroll = true;
-            flowLayoutPanelClasses.Controls.Add(panel2);
-            flowLayoutPanelClasses.Location = new Point(27, 343);
-            flowLayoutPanelClasses.Name = "flowLayoutPanelClasses";
-            flowLayoutPanelClasses.Padding = new Padding(10);
-            flowLayoutPanelClasses.Size = new Size(853, 312);
-            flowLayoutPanelClasses.TabIndex = 15;
+            flowLayoutPanelSubjetcs.AutoScroll = true;
+            flowLayoutPanelSubjetcs.Controls.Add(panel2);
+            flowLayoutPanelSubjetcs.Location = new Point(27, 355);
+            flowLayoutPanelSubjetcs.Name = "flowLayoutPanelSubjetcs";
+            flowLayoutPanelSubjetcs.Padding = new Padding(10);
+            flowLayoutPanelSubjetcs.Size = new Size(853, 312);
+            flowLayoutPanelSubjetcs.TabIndex = 29;
             // 
             // panel2
             // 
@@ -251,22 +249,21 @@
             panel2.Size = new Size(267, 203);
             panel2.TabIndex = 0;
             // 
-            // Classess
+            // FrmSubject
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            AutoScroll = true;
-            ClientSize = new Size(962, 521);
+            ClientSize = new Size(1017, 509);
+            Controls.Add(label1);
             Controls.Add(label6);
             Controls.Add(panel5);
             Controls.Add(panel4);
             Controls.Add(panel3);
             Controls.Add(panel1);
-            Controls.Add(label1);
-            Controls.Add(flowLayoutPanelClasses);
-            Name = "Classess";
-            Text = "Classess";
-            Load += Classess_Load;
+            Controls.Add(flowLayoutPanelSubjetcs);
+            Name = "FrmSubject";
+            Text = "FrmSubject";
+            Load += FrmSubject_Load;
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
             panel4.ResumeLayout(false);
@@ -275,12 +272,13 @@
             panel3.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            flowLayoutPanelClasses.ResumeLayout(false);
+            flowLayoutPanelSubjetcs.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
+        private Label label1;
         private Label label6;
         private Panel panel5;
         private TextBox txtSearch;
@@ -298,8 +296,7 @@
         private Label label4;
         private Panel panel1;
         private Label label3;
-        private Label label1;
+        public FlowLayoutPanel flowLayoutPanelSubjetcs;
         private Panel panel2;
-        public FlowLayoutPanel flowLayoutPanelClasses;
     }
 }

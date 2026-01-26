@@ -63,7 +63,7 @@
             label1.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(1, -5);
             label1.Name = "label1";
-            label1.Size = new Size(1191, 52);
+            label1.Size = new Size(958, 52);
             label1.TabIndex = 1;
             label1.Text = "    STUDENT LIST";
             label1.TextAlign = ContentAlignment.MiddleLeft;

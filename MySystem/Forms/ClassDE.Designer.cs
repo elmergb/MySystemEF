@@ -201,6 +201,7 @@
             label9.TabIndex = 25;
             label9.Text = "      Class Capacity";
             label9.TextAlign = ContentAlignment.MiddleLeft;
+            label9.Click += label9_Click;
             // 
             // label10
             // 

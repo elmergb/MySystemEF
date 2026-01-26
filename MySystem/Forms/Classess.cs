@@ -37,8 +37,14 @@ namespace MySystem.Forms
             using var context = new TaskDBContext();
 
             var classes = context.Classes
-                .Include(c => c.ClassTeacher)
-                .ToList();
+            .Include(c => c.ClassTeacher)
+            .Include(c => c.ClassSubjects)
+                .ThenInclude(cs => cs.Subject)
+            .Include(c => c.ClassSubjects)
+                .ThenInclude(cs => cs.Teacher)
+            .Include(c => c.StudentClasses)
+            .ToList();
+
 
             foreach (var cls in classes)
             {
@@ -47,5 +53,9 @@ namespace MySystem.Forms
             }
         }
 
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

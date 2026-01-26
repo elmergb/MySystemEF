@@ -142,9 +142,6 @@ namespace MySystem.Forms
             cbTeachers.DataSource = teachers;
             cbTeachers.DisplayMember = "FullName";
             cbTeachers.ValueMember = "TeacherID";
-
-
-
             #endregion
         }
 
@@ -171,6 +168,11 @@ namespace MySystem.Forms
         private void lblCapacity_TextChanged(object sender, EventArgs e)
         {
             lblCapacity.Text = txtCapacity.Text;
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
