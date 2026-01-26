@@ -169,7 +169,6 @@
             label7.TabIndex = 22;
             label7.Text = "      Class Teacher Assignment";
             label7.TextAlign = ContentAlignment.MiddleLeft;
-            label7.Click += label7_Click;
             // 
             // cbTeachers
             // 
@@ -201,7 +200,7 @@
             label9.TabIndex = 25;
             label9.Text = "      Class Capacity";
             label9.TextAlign = ContentAlignment.MiddleLeft;
-            label9.Click += label9_Click;
+          
             // 
             // label10
             // 
@@ -248,7 +247,7 @@
             lblCapacity.Size = new Size(15, 20);
             lblCapacity.TabIndex = 36;
             lblCapacity.Text = "-";
-            lblCapacity.TextChanged += lblCapacity_TextChanged;
+         
             // 
             // label16
             // 
@@ -269,7 +268,7 @@
             lblAcademicYear.Size = new Size(15, 20);
             lblAcademicYear.TabIndex = 34;
             lblAcademicYear.Text = "-";
-            lblAcademicYear.Click += lblAcademicYear_Click;
+            
             // 
             // label13
             // 
@@ -290,7 +289,7 @@
             lblClassTeacher.Size = new Size(15, 20);
             lblClassTeacher.TabIndex = 32;
             lblClassTeacher.Text = "-";
-            lblClassTeacher.Click += lblClassTeacher_Click;
+            
             // 
             // label14
             // 
@@ -311,7 +310,7 @@
             lblFullClassName.Size = new Size(15, 20);
             lblFullClassName.TabIndex = 30;
             lblFullClassName.Text = "-";
-            lblFullClassName.Click += lblFullClassName_Click;
+      
             // 
             // label12
             // 

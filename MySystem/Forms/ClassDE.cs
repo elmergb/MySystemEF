@@ -14,6 +14,7 @@ namespace MySystem.Forms
 {
     public partial class ClassDE : Form
     {
+       
 
         public ClassDE()
         {
@@ -118,15 +119,46 @@ namespace MySystem.Forms
                 AutoSize = true
             };
 
+            //Label lblSubject = new Label
+            //{
+            //    Text = $"Subject: {}",
+            //};
+
+            Button btnAssign = new Button
+            {
+                Text = $"Assign",
+                Location = new Point (30, 140),
+                AutoSize = true,
+                Tag = cls
+            };
+            btnAssign.Click += btnAssign_Click;
             card.Controls.Add(lblClass);
             card.Controls.Add(lblTeacher);
             card.Controls.Add(lblSection);
             card.Controls.Add(lblCapacity);
             card.Controls.Add(lblRoomNumber);
-
+            card.Controls.Add(btnAssign);
             return card;
         }
         #endregion
+        private Class selectedClass;
+        AssignSubjectAndTeacher selected = new AssignSubjectAndTeacher();
+        private void btnAssign_Click(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            if (btn == null) return;
+
+            Class cls = btn.Tag as Class;
+            if (cls == null) return;
+
+            selectedClass = cls;
+            // Populate Room TextBox or any other controls
+            var select = selected.txtRoomNumberSelected.Text = cls.RoomNumber.ToString().Trim();
+            var selectedSection = selected.txtSection.Text = cls.Section.ToString().Trim(); 
+            var frm = new AssignSubjectAndTeacher(select, selectedSection);
+            frm.Show();
+        }
+
         private void ClassDE_Load(object sender, EventArgs e)
         {
             #region combo box datasource
@@ -143,36 +175,6 @@ namespace MySystem.Forms
             cbTeachers.DisplayMember = "FullName";
             cbTeachers.ValueMember = "TeacherID";
             #endregion
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblFullClassName_Click(object sender, EventArgs e)
-        {
-            lblFullClassName.Text = txtClassName.Text;
-        }
-
-        private void lblClassTeacher_Click(object sender, EventArgs e)
-        {
-            lblClassTeacher.Text = cbTeachers.SelectedText;
-        }
-
-        private void lblAcademicYear_Click(object sender, EventArgs e)
-        {
-            lblAcademicYear.Text = txtAcademicYear.Text;
-        }
-
-        private void lblCapacity_TextChanged(object sender, EventArgs e)
-        {
-            lblCapacity.Text = txtCapacity.Text;
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

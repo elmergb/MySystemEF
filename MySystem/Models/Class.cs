@@ -21,7 +21,7 @@ namespace MySystem.Models
         [ForeignKey("TeacherID")]
         public int ClassTeacherID { get; set; }
         public int Capacity { get; set; }
-        public int RoomNumber { get; set; }
+        public int? RoomNumber { get; set; }
 
         public DateTime CreatedDate { get; set; }
 

@@ -58,13 +58,13 @@
             btnCancel = new Button();
             btnClear = new Button();
             btnSave = new Button();
-            label17 = new Label();
-            txtMiddleName = new TextBox();
             cbStatus = new ComboBox();
             cbSection = new ComboBox();
             Section = new Label();
             cbGrade = new ComboBox();
             label18 = new Label();
+            label17 = new Label();
+            txtMiddleName = new TextBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picture).BeginInit();
             SuspendLayout();
@@ -376,26 +376,6 @@
             btnSave.UseVisualStyleBackColor = true;
             btnSave.Click += btnSave_Click;
             // 
-            // label17
-            // 
-            label17.AutoSize = true;
-            label17.Font = new Font("Microsoft Tai Le", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label17.Location = new Point(188, 298);
-            label17.Name = "label17";
-            label17.Size = new Size(107, 21);
-            label17.TabIndex = 34;
-            label17.Text = "Middle Name:";
-            label17.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // txtMiddleName
-            // 
-            txtMiddleName.Font = new Font("Microsoft New Tai Lue", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtMiddleName.Location = new Point(188, 322);
-            txtMiddleName.Multiline = true;
-            txtMiddleName.Name = "txtMiddleName";
-            txtMiddleName.Size = new Size(158, 33);
-            txtMiddleName.TabIndex = 35;
-            // 
             // cbStatus
             // 
             cbStatus.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -448,6 +428,26 @@
             label18.TabIndex = 38;
             label18.Text = "Grade";
             label18.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Font = new Font("Microsoft Tai Le", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label17.Location = new Point(188, 298);
+            label17.Name = "label17";
+            label17.Size = new Size(107, 21);
+            label17.TabIndex = 34;
+            label17.Text = "Middle Name:";
+            label17.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // txtMiddleName
+            // 
+            txtMiddleName.Font = new Font("Microsoft New Tai Lue", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtMiddleName.Location = new Point(188, 322);
+            txtMiddleName.Multiline = true;
+            txtMiddleName.Name = "txtMiddleName";
+            txtMiddleName.Size = new Size(158, 33);
+            txtMiddleName.TabIndex = 35;
             // 
             // StudentDE
             // 
@@ -532,12 +532,12 @@
         private Button btnCancel;
         private Button btnClear;
         private Button btnSave;
-        private Label label17;
-        private TextBox txtMiddleName;
         private ComboBox cbStatus;
         private ComboBox cbSection;
         private Label Section;
         private ComboBox cbGrade;
         private Label label18;
+        private Label label17;
+        private TextBox txtMiddleName;
     }
 }

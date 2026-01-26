@@ -33,7 +33,7 @@
             txtSearch = new TextBox();
             cbStatus = new ComboBox();
             cbSection = new ComboBox();
-            btnPrint = new Button();
+            btnAssign = new Button();
             btnExport = new Button();
             btnViewDetails = new Button();
             btnDelete = new Button();
@@ -47,12 +47,10 @@
             label3 = new Label();
             label1 = new Label();
             flowLayoutPanelClasses = new FlowLayoutPanel();
-            panel2 = new Panel();
             panel5.SuspendLayout();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
             panel1.SuspendLayout();
-            flowLayoutPanelClasses.SuspendLayout();
             SuspendLayout();
             // 
             // label6
@@ -64,7 +62,7 @@
             label6.TabIndex = 21;
             label6.Text = "    STUDENT RECORD";
             label6.TextAlign = ContentAlignment.MiddleLeft;
-            label6.Click += label6_Click;
+        
             // 
             // panel5
             // 
@@ -72,7 +70,7 @@
             panel5.Controls.Add(txtSearch);
             panel5.Controls.Add(cbStatus);
             panel5.Controls.Add(cbSection);
-            panel5.Controls.Add(btnPrint);
+            panel5.Controls.Add(btnAssign);
             panel5.Controls.Add(btnExport);
             panel5.Controls.Add(btnViewDetails);
             panel5.Controls.Add(btnDelete);
@@ -109,14 +107,14 @@
             cbSection.Size = new Size(145, 23);
             cbSection.TabIndex = 11;
             // 
-            // btnPrint
+            // btnAssign
             // 
-            btnPrint.Location = new Point(657, 13);
-            btnPrint.Name = "btnPrint";
-            btnPrint.Size = new Size(79, 34);
-            btnPrint.TabIndex = 10;
-            btnPrint.Text = "Print";
-            btnPrint.UseVisualStyleBackColor = true;
+            btnAssign.Location = new Point(657, 13);
+            btnAssign.Name = "btnAssign";
+            btnAssign.Size = new Size(79, 34);
+            btnAssign.TabIndex = 10;
+            btnAssign.Text = "Assign";
+            btnAssign.UseVisualStyleBackColor = true;
             // 
             // btnExport
             // 
@@ -236,20 +234,11 @@
             // flowLayoutPanelClasses
             // 
             flowLayoutPanelClasses.AutoScroll = true;
-            flowLayoutPanelClasses.Controls.Add(panel2);
             flowLayoutPanelClasses.Location = new Point(27, 343);
             flowLayoutPanelClasses.Name = "flowLayoutPanelClasses";
             flowLayoutPanelClasses.Padding = new Padding(10);
             flowLayoutPanelClasses.Size = new Size(853, 312);
             flowLayoutPanelClasses.TabIndex = 15;
-            // 
-            // panel2
-            // 
-            panel2.BackColor = SystemColors.ActiveCaption;
-            panel2.Location = new Point(13, 13);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(267, 203);
-            panel2.TabIndex = 0;
             // 
             // Classess
             // 
@@ -275,7 +264,6 @@
             panel3.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            flowLayoutPanelClasses.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -286,7 +274,7 @@
         private TextBox txtSearch;
         private ComboBox cbStatus;
         private ComboBox cbSection;
-        private Button btnPrint;
+        private Button btnAssign;
         private Button btnExport;
         private Button btnViewDetails;
         private Button btnDelete;
@@ -299,7 +287,6 @@
         private Panel panel1;
         private Label label3;
         private Label label1;
-        private Panel panel2;
         public FlowLayoutPanel flowLayoutPanelClasses;
     }
 }
