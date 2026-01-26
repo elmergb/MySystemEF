@@ -21,10 +21,13 @@ namespace MySystem.Models
         [ForeignKey("TeacherID")]
         public int ClassTeacherID { get; set; }
         public int Capacity { get; set; }
+        public int RoomNumber { get; set; }
 
         public DateTime CreatedDate { get; set; }
 
         // 🔹 Navigation Property
         public Teachers ClassTeacher { get; set; }
+        public ICollection<StudentClass> StudentClasses { get; set; }
+        public ICollection<ClassSubject> ClassSubjects { get; set; }
     }
 }

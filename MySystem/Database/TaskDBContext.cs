@@ -21,6 +21,9 @@ namespace MySystem.Database
         public DbSet<Course> courses { get; set; }
         public DbSet<Teachers> Teachers { get; set; }
         public DbSet<Class> Classes { get;set;}
+        public DbSet<Subject> Subjects { get; set; }
+        public DbSet<StudentClass> StudentClasses { get; set; }
+        public DbSet<ClassSubject> ClassSubjects { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
             options.UseMySql(
@@ -53,8 +56,16 @@ namespace MySystem.Database
             .IsUnique();
 
             modelBuilder.Entity<Class>()
-          .HasIndex(c => c.ClassID)
-          .IsUnique();
+              .HasIndex(c => c.ClassID)
+              .IsUnique();
+
+            modelBuilder.Entity<StudentClass>()
+                .HasIndex(sc => new { sc.StudentID, sc.ClassID })
+                .IsUnique();
+
+            modelBuilder.Entity<ClassSubject>()
+                .HasIndex(cs => new { cs.ClassID, cs.SubjectID })
+                .IsUnique();
         }
 
 

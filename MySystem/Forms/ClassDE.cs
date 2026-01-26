@@ -46,7 +46,9 @@ namespace MySystem.Forms
                 ClassName = txtClassName.Text,
                 Section = cbSection.Text,
                 AcademicYear = txtAcademicYear.Text,
+                Capacity = Convert.ToInt32(txtCapacity.Text),
                 ClassTeacherID = (int)cbTeachers.SelectedValue,
+                RoomNumber = Convert.ToInt32(txtRoomNumber.Text),
                 CreatedDate = DateTime.Now
             };
 
@@ -67,12 +69,13 @@ namespace MySystem.Forms
             txtCapacity.Clear();
             cbTeachers.SelectedIndex = 0;
         }
+        #region CreateClassCard Auto Generate
         public Panel CreateClassCard(Class cls)
         {
             Panel card = new Panel
             {
                 Width = 260,
-                Height = 160,
+                Height = 180,
                 BorderStyle = BorderStyle.FixedSingle,
                 Margin = new Padding(10),
                 BackColor = Color.White
@@ -108,14 +111,22 @@ namespace MySystem.Forms
                 AutoSize = true
             };
 
+            Label lblRoomNumber = new Label
+            {
+                Text = $"Room No: {cls.RoomNumber}",
+                Location = new Point(10, 105),
+                AutoSize = true
+            };
+
             card.Controls.Add(lblClass);
             card.Controls.Add(lblTeacher);
             card.Controls.Add(lblSection);
             card.Controls.Add(lblCapacity);
+            card.Controls.Add(lblRoomNumber);
 
             return card;
         }
-
+        #endregion
         private void ClassDE_Load(object sender, EventArgs e)
         {
             #region combo box datasource
@@ -131,12 +142,35 @@ namespace MySystem.Forms
             cbTeachers.DataSource = teachers;
             cbTeachers.DisplayMember = "FullName";
             cbTeachers.ValueMember = "TeacherID";
+
+
+
             #endregion
         }
 
         private void label7_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void lblFullClassName_Click(object sender, EventArgs e)
+        {
+            lblFullClassName.Text = txtClassName.Text;
+        }
+
+        private void lblClassTeacher_Click(object sender, EventArgs e)
+        {
+            lblClassTeacher.Text = cbTeachers.SelectedText;
+        }
+
+        private void lblAcademicYear_Click(object sender, EventArgs e)
+        {
+            lblAcademicYear.Text = txtAcademicYear.Text;
+        }
+
+        private void lblCapacity_TextChanged(object sender, EventArgs e)
+        {
+            lblCapacity.Text = txtCapacity.Text;
         }
     }
 }

@@ -27,5 +27,7 @@ namespace MySystem.Models
         public DateTime EnrollmentDate { get; set; }
         public string? PhotoPath { get; set; }
         public string Status { get; set; }
+
+        public ICollection<StudentClass> StudentClasses { get; set; }
     }
 }

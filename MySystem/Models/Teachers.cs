@@ -28,6 +28,7 @@ namespace MySystem.Models
        public string PhotoPath { get; set; }
        public DateTime CreatedDate { get; set; }
 
-       public ICollection<Teachers> teachers { get; set;}     
+        public ICollection<Class> ClassesHandled { get; set; }
+        public ICollection<ClassSubject> ClassSubjects { get; set; }
     }
 }

@@ -247,6 +247,7 @@
             lblCapacity.Size = new Size(15, 20);
             lblCapacity.TabIndex = 36;
             lblCapacity.Text = "-";
+            lblCapacity.TextChanged += lblCapacity_TextChanged;
             // 
             // label16
             // 
@@ -267,6 +268,7 @@
             lblAcademicYear.Size = new Size(15, 20);
             lblAcademicYear.TabIndex = 34;
             lblAcademicYear.Text = "-";
+            lblAcademicYear.Click += lblAcademicYear_Click;
             // 
             // label13
             // 
@@ -287,6 +289,7 @@
             lblClassTeacher.Size = new Size(15, 20);
             lblClassTeacher.TabIndex = 32;
             lblClassTeacher.Text = "-";
+            lblClassTeacher.Click += lblClassTeacher_Click;
             // 
             // label14
             // 
@@ -307,6 +310,7 @@
             lblFullClassName.Size = new Size(15, 20);
             lblFullClassName.TabIndex = 30;
             lblFullClassName.Text = "-";
+            lblFullClassName.Click += lblFullClassName_Click;
             // 
             // label12
             // 

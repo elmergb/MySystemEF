@@ -1,4 +1,5 @@
 ﻿using MySystem.Database;
+using MySystem.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -76,6 +77,51 @@ namespace MySystem.Forms
         private void label6_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            int _TeacherID;
+
+            if (dgvTeachers.CurrentRow == null)
+            {
+                MessageBox.Show($"Select a record to delete");
+                return;
+            }
+
+            var selectedID = dgvTeachers.CurrentRow.DataBoundItem as Teachers;
+            if (selectedID != null)
+            {
+                _TeacherID = selectedID.TeacherID;
+            } else
+            {
+                var selectedIDCell = dgvTeachers.CurrentRow.Cells["ID"];
+                if (selectedIDCell?.Value == null ||!int.TryParse(selectedIDCell.Value.ToString(), out _TeacherID))
+                {
+                    MessageBox.Show($"Teacher not found");
+                    return;
+                } 
+            }
+
+            var confirmation = MessageBox.Show("@Are you sure you want to delete this record?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (confirmation != DialogResult.Yes)
+                return;
+
+            var db = new TaskDBContext();
+
+            var FindTeacherId = db.Teachers.Find(_TeacherID);
+
+            if (FindTeacherId == null)
+            {
+                MessageBox.Show($"Teacher not found");
+                return;
+            } else
+            {
+                var selectedIDTeacher = db.Teachers.SingleOrDefault(t => t.TeacherID == _TeacherID);
+                selectedIDTeacher.Status = "Inactive";
+            }
+            db.SaveChanges();
+            TeacherLoad();
         }
     }
 }

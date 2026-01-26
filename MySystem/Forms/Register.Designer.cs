@@ -42,10 +42,10 @@
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(441, 279);
+            btnSave.Location = new Point(253, 223);
             btnSave.Margin = new Padding(3, 4, 3, 4);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(85, 36);
+            btnSave.Size = new Size(70, 31);
             btnSave.TabIndex = 0;
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = true;
@@ -54,7 +54,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(169, 59);
+            label1.Location = new Point(37, 28);
             label1.Name = "label1";
             label1.Size = new Size(80, 18);
             label1.TabIndex = 1;
@@ -62,7 +62,7 @@
             // 
             // txtUsername
             // 
-            txtUsername.Location = new Point(309, 58);
+            txtUsername.Location = new Point(177, 27);
             txtUsername.Margin = new Padding(3, 4, 3, 4);
             txtUsername.Name = "txtUsername";
             txtUsername.Size = new Size(145, 26);
@@ -70,10 +70,10 @@
             // 
             // btnCancel
             // 
-            btnCancel.Location = new Point(532, 279);
+            btnCancel.Location = new Point(344, 223);
             btnCancel.Margin = new Padding(3, 4, 3, 4);
             btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(85, 36);
+            btnCancel.Size = new Size(70, 31);
             btnCancel.TabIndex = 3;
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = true;
@@ -81,7 +81,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(203, 131);
+            label2.Location = new Point(71, 100);
             label2.Name = "label2";
             label2.Size = new Size(40, 18);
             label2.TabIndex = 4;
@@ -89,7 +89,7 @@
             // 
             // txtPassword
             // 
-            txtPassword.Location = new Point(309, 92);
+            txtPassword.Location = new Point(177, 61);
             txtPassword.Margin = new Padding(3, 4, 3, 4);
             txtPassword.Name = "txtPassword";
             txtPassword.Size = new Size(145, 26);
@@ -98,7 +98,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(175, 95);
+            label3.Location = new Point(43, 64);
             label3.Name = "label3";
             label3.Size = new Size(74, 18);
             label3.TabIndex = 6;
@@ -107,7 +107,7 @@
             // cbStatus
             // 
             cbStatus.AutoSize = true;
-            cbStatus.Location = new Point(309, 173);
+            cbStatus.Location = new Point(177, 142);
             cbStatus.Name = "cbStatus";
             cbStatus.Size = new Size(15, 14);
             cbStatus.TabIndex = 8;
@@ -116,7 +116,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(203, 169);
+            label4.Location = new Point(71, 138);
             label4.Name = "label4";
             label4.Size = new Size(54, 18);
             label4.TabIndex = 9;
@@ -126,7 +126,7 @@
             // 
             cbRole.DropDownStyle = ComboBoxStyle.DropDownList;
             cbRole.FormattingEnabled = true;
-            cbRole.Location = new Point(309, 128);
+            cbRole.Location = new Point(177, 97);
             cbRole.Name = "cbRole";
             cbRole.Size = new Size(143, 26);
             cbRole.TabIndex = 10;
@@ -135,7 +135,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 18F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(647, 339);
+            ClientSize = new Size(426, 267);
             Controls.Add(cbRole);
             Controls.Add(label4);
             Controls.Add(cbStatus);
