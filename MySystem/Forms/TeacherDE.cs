@@ -87,7 +87,11 @@ namespace MySystem.Forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-
+            if (selectedPhotoPath == null)
+            {
+                MessageBox.Show($"Photo is required");
+                return;
+            }
             using var db = new TaskDBContext();
             var teacher = db.Teachers.SingleOrDefault(t => t.TeacherID == _teacherID);
             if (teacher != null)

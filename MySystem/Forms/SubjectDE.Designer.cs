@@ -32,12 +32,12 @@
             txtSubjectCode = new TextBox();
             label2 = new Label();
             lblSu = new Label();
-            txtSubjectName = new TextBox();
             lblDes = new Label();
             txtDescription = new TextBox();
             lblC = new Label();
             txtCredits = new TextBox();
             btnSave = new Button();
+            cbSubjects = new ComboBox();
             SuspendLayout();
             // 
             // label3
@@ -81,15 +81,6 @@
             lblSu.Text = "Subject Name";
             lblSu.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // txtSubjectName
-            // 
-            txtSubjectName.Font = new Font("Microsoft New Tai Lue", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtSubjectName.Location = new Point(23, 241);
-            txtSubjectName.Multiline = true;
-            txtSubjectName.Name = "txtSubjectName";
-            txtSubjectName.Size = new Size(281, 33);
-            txtSubjectName.TabIndex = 17;
-            // 
             // lblDes
             // 
             lblDes.AutoSize = true;
@@ -132,7 +123,7 @@
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(457, 467);
+            btnSave.Location = new Point(457, 477);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(123, 32);
             btnSave.TabIndex = 34;
@@ -140,18 +131,27 @@
             btnSave.UseVisualStyleBackColor = true;
             btnSave.Click += btnSave_Click;
             // 
+            // cbSubjects
+            // 
+            cbSubjects.Font = new Font("Microsoft New Tai Lue", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbSubjects.FormattingEnabled = true;
+            cbSubjects.Location = new Point(20, 241);
+            cbSubjects.Name = "cbSubjects";
+            cbSubjects.Size = new Size(281, 29);
+            cbSubjects.TabIndex = 35;
+            // 
             // SubjectDE
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(592, 511);
+            Controls.Add(cbSubjects);
             Controls.Add(btnSave);
             Controls.Add(lblC);
             Controls.Add(txtCredits);
             Controls.Add(lblDes);
             Controls.Add(txtDescription);
             Controls.Add(lblSu);
-            Controls.Add(txtSubjectName);
             Controls.Add(label3);
             Controls.Add(txtSubjectCode);
             Controls.Add(label2);
@@ -168,11 +168,11 @@
         private TextBox txtSubjectCode;
         private Label label2;
         private Label lblSu;
-        private TextBox txtSubjectName;
         private Label lblDes;
         private TextBox txtDescription;
         private Label lblC;
         private TextBox txtCredits;
         private Button btnSave;
+        private ComboBox cbSubjects;
     }
 }

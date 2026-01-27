@@ -15,7 +15,7 @@ namespace MySystem.Models
         public string Description { get; set; }
 
         public int Credits { get; set; }
-        public DateTime CreatedDate { get; set; }
+        public DateTime? CreatedDate { get; set; }
 
         // Navigation
         public ICollection<ClassSubject> ClassSubjects { get; set; }

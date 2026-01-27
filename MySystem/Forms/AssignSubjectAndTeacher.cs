@@ -16,7 +16,7 @@ namespace MySystem.Forms
     {
         public string? _section;
         public string? _SelectedRoom;
-        public int? _selectedID;
+        public int _selectedID;
         public AssignSubjectAndTeacher()
         {
             InitializeComponent();
@@ -58,10 +58,48 @@ namespace MySystem.Forms
             cbSubject.DisplayMember = "SubjectName";
             cbSubject.ValueMember = "SubjectID";
         }
-
+      
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if (cbTeacher.SelectedValue == null || cbSubject.SelectedValue == null)
+            {
+                MessageBox.Show("Please Select");
+                return;
+            }
 
+            int teacher = (int)cbTeacher.SelectedValue;
+            int subject = (int)cbSubject.SelectedValue;
+            string schedule = txtSchedule.Text;
+
+            using var db = new TaskDBContext();
+
+            bool exists = db.ClassSubjects.Any(cs =>
+               cs.ClassID == _selectedID &&
+               cs.SubjectID == subject
+                );
+
+            if (exists)
+            {
+                MessageBox.Show("This subject is already assigned to this class.");
+                return;
+            }
+
+
+            var assignment = new ClassSubject
+            {
+                ClassID = _selectedID,
+                SubjectID = subject,
+                TeacherID = teacher,
+                Schedule = schedule
+            };
+
+            db.ClassSubjects.Add(assignment);
+            db.SaveChanges();
+
+            MessageBox.Show("Teacher assigned successfully.");
+
+            // Optional refresh
+            //LoadAssignedSubjects(selectedClass.ClassID);
         }
     }
 }

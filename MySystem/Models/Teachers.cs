@@ -26,7 +26,7 @@ namespace MySystem.Models
        public double Salary { get; set; }
        public string Status { get; set; }
        public string PhotoPath { get; set; }
-       public DateTime CreatedDate { get; set; }
+       public DateTime? CreatedDate { get; set; }
 
         public ICollection<Class> ClassesHandled { get; set; }
         public ICollection<ClassSubject> ClassSubjects { get; set; }
