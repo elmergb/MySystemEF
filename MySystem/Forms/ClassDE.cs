@@ -33,7 +33,7 @@ namespace MySystem.Forms
             var newClass = new Class
             {
                 ClassName = txtClassName.Text,
-                Section = cbSection.Text,
+                SectionID = (int)cbSection.SelectedValue,
                 AcademicYear = txtAcademicYear.Text,
                 Capacity = Convert.ToInt32(txtCapacity.Text),
                 ClassTeacherID = (int)cbTeachers.SelectedValue,
@@ -239,7 +239,7 @@ namespace MySystem.Forms
             using var db = new TaskDBContext();
             var select = selected.txtRoomNumberSelected.Text = cls.RoomNumber.ToString().Trim();
             int classID = selectedClass.ClassID;
-            var selectedSection = selected.txtSection.Text = cls.Section.ToString().Trim(); 
+            var selectedSection = selected.txtSection.Text = cls.Section.ToString().Trim();
             var frm = new AssignSubjectAndTeacher(select, selectedSection, classID);
             frm.Show();
         }
@@ -260,6 +260,11 @@ namespace MySystem.Forms
             cbTeachers.DisplayMember = "FullName";
             cbTeachers.ValueMember = "TeacherID";
             #endregion
+        }
+
+        private void cbSection_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MySystem.Database;
 
@@ -11,9 +12,11 @@ using MySystem.Database;
 namespace MySystem.Migrations
 {
     [DbContext(typeof(TaskDBContext))]
-    partial class TaskDBContextModelSnapshot : ModelSnapshot
+    [Migration("20260128123024_AddSectionAndLinkToClass")]
+    partial class AddSectionAndLinkToClass
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -34,7 +37,7 @@ namespace MySystem.Migrations
 
                     b.HasIndex("StudentsStudentID");
 
-                    b.ToTable("Classstudents", (string)null);
+                    b.ToTable("Classstudents");
                 });
 
             modelBuilder.Entity("MySystem.Models.Class", b =>
@@ -77,7 +80,7 @@ namespace MySystem.Migrations
 
                     b.HasIndex("SectionID");
 
-                    b.ToTable("Classes", (string)null);
+                    b.ToTable("Classes");
                 });
 
             modelBuilder.Entity("MySystem.Models.ClassSubject", b =>
@@ -110,7 +113,7 @@ namespace MySystem.Migrations
                     b.HasIndex("ClassID", "SubjectID")
                         .IsUnique();
 
-                    b.ToTable("ClassSubjects", (string)null);
+                    b.ToTable("ClassSubjects");
                 });
 
             modelBuilder.Entity("MySystem.Models.Course", b =>
@@ -134,7 +137,7 @@ namespace MySystem.Migrations
                     b.HasIndex("courseCode")
                         .IsUnique();
 
-                    b.ToTable("courses", (string)null);
+                    b.ToTable("courses");
                 });
 
             modelBuilder.Entity("MySystem.Models.Section", b =>
@@ -154,7 +157,7 @@ namespace MySystem.Migrations
 
                     b.HasKey("SectionID");
 
-                    b.ToTable("Sections", (string)null);
+                    b.ToTable("Sections");
                 });
 
             modelBuilder.Entity("MySystem.Models.StudentClass", b =>
@@ -185,7 +188,7 @@ namespace MySystem.Migrations
                     b.HasIndex("StudentID", "ClassID")
                         .IsUnique();
 
-                    b.ToTable("StudentClasses", (string)null);
+                    b.ToTable("StudentClasses");
                 });
 
             modelBuilder.Entity("MySystem.Models.Subject", b =>
@@ -216,7 +219,7 @@ namespace MySystem.Migrations
 
                     b.HasKey("SubjectID");
 
-                    b.ToTable("Subjects", (string)null);
+                    b.ToTable("Subjects");
                 });
 
             modelBuilder.Entity("MySystem.Models.Teachers", b =>
@@ -288,7 +291,7 @@ namespace MySystem.Migrations
                     b.HasIndex("TeacherID")
                         .IsUnique();
 
-                    b.ToTable("Teachers", (string)null);
+                    b.ToTable("Teachers");
                 });
 
             modelBuilder.Entity("MySystem.Models.User.User", b =>
@@ -319,7 +322,7 @@ namespace MySystem.Migrations
 
                     b.HasKey("UserID");
 
-                    b.ToTable("Users", (string)null);
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("MySystem.Models.YearLevels", b =>
@@ -335,7 +338,7 @@ namespace MySystem.Migrations
 
                     b.HasKey("YearID");
 
-                    b.ToTable("Year", (string)null);
+                    b.ToTable("Year");
                 });
 
             modelBuilder.Entity("MySystem.Models.students", b =>

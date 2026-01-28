@@ -15,7 +15,8 @@ namespace MySystem.Models
         public int ClassID { get; set; }
 
         public string ClassName { get; set; }
-        public string Section { get; set; }
+        public int SectionID { get; set; }
+        public Section Section { get; set; }
         public string AcademicYear { get; set; }
 
         [ForeignKey("TeacherID")]
@@ -29,5 +30,6 @@ namespace MySystem.Models
         public Teachers ClassTeacher { get; set; }
         public ICollection<StudentClass> StudentClasses { get; set; }
         public ICollection<ClassSubject> ClassSubjects { get; set; }
+        public ICollection<students> Students { get; set; } // Many-to-many
     }
 }

@@ -19,7 +19,6 @@ namespace MySystem.Models
         public DateTime DateOfBirth { get; set; }
         public string Gender { get; set; }
         public string Address { get; set; }
-        public string Section { get; set;}
         public string GradeLevel { get; set; }
         public string PhoneNumber { get; set; }
         public string GuardianName { get; set; }
@@ -29,5 +28,6 @@ namespace MySystem.Models
         public string Status { get; set; }
 
         public ICollection<StudentClass> StudentClasses { get; set; }
+        public ICollection<Class> Classes { get; set; }
     }
 }

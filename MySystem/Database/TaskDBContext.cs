@@ -24,6 +24,7 @@ namespace MySystem.Database
         public DbSet<Subject> Subjects { get; set; }
         public DbSet<StudentClass> StudentClasses { get; set; }
         public DbSet<ClassSubject> ClassSubjects { get; set; }
+        public DbSet<Section> Sections { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
             options.UseMySql(

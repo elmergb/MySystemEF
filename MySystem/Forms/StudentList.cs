@@ -48,7 +48,7 @@ namespace MySystem.Forms
                     Last_Name = s.LastName,
                     Gender = s.Gender,
                     Phone_Number = s.PhoneNumber,
-                    Section = s.Section,
+                    //Section = s.SectionID,
                     g = s.GradeLevel
                 })
                 .ToList();

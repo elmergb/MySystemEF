@@ -88,6 +88,7 @@
             cbSection.Name = "cbSection";
             cbSection.Size = new Size(223, 30);
             cbSection.TabIndex = 17;
+            cbSection.SelectedIndexChanged += cbSection_SelectedIndexChanged;
             // 
             // label6
             // 
@@ -200,7 +201,6 @@
             label9.TabIndex = 25;
             label9.Text = "      Class Capacity";
             label9.TextAlign = ContentAlignment.MiddleLeft;
-          
             // 
             // label10
             // 
@@ -247,7 +247,6 @@
             lblCapacity.Size = new Size(15, 20);
             lblCapacity.TabIndex = 36;
             lblCapacity.Text = "-";
-         
             // 
             // label16
             // 
@@ -268,7 +267,6 @@
             lblAcademicYear.Size = new Size(15, 20);
             lblAcademicYear.TabIndex = 34;
             lblAcademicYear.Text = "-";
-            
             // 
             // label13
             // 
@@ -289,7 +287,6 @@
             lblClassTeacher.Size = new Size(15, 20);
             lblClassTeacher.TabIndex = 32;
             lblClassTeacher.Text = "-";
-            
             // 
             // label14
             // 
@@ -310,7 +307,6 @@
             lblFullClassName.Size = new Size(15, 20);
             lblFullClassName.TabIndex = 30;
             lblFullClassName.Text = "-";
-      
             // 
             // label12
             // 

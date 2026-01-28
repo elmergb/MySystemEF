@@ -157,7 +157,7 @@ namespace MySystem.Forms
             txtGuardianPhone.Text = student.GuardianPhone;
             dtpEnrollmentDate.Value = student.EnrollmentDate;
             cbStatus.Text = student.Status;
-            cbSection.Text = student.Section;
+            //cbSection.SelectedValue = student.SectionID;
             cbGrade.Text = student.GradeLevel;
             selectedPhotoPath = student.PhotoPath; // keep existing
             LoadImage(selectedPhotoPath);
@@ -182,7 +182,7 @@ namespace MySystem.Forms
                 student.GuardianPhone = txtGuardianPhone.Text;
                 student.Status = cbStatus.Text;
                 student.EnrollmentDate = dtpEnrollmentDate.Value;
-                student.Section = cbSection.Text;
+                //student.SectionID = (int)cbSection.SelectedValue;
                 student.GradeLevel = cbGrade.Text;
                 if (!string.IsNullOrWhiteSpace(selectedPhotoPath))
                     student.PhotoPath = selectedPhotoPath;
@@ -205,7 +205,7 @@ namespace MySystem.Forms
                     Status = cbStatus.Text,
                     EnrollmentDate = dtpEnrollmentDate.Value,
                     PhotoPath = selectedPhotoPath,
-                    Section = cbSection.Text,
+                    //SectionID = (int)cbSection.SelectedValue,
                     GradeLevel = cbGrade.Text
                 };
                 db.Add(studentNew);
